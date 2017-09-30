@@ -51,7 +51,7 @@
         s = b.getElementsByTagName(e)[0];
         s.parentNode.insertBefore(t, s)
     }(window,
-        document, 'script', './connect.facebook.net/en_US/fbevents.js');
+        document, 'script', "<?php echo public_url('site')?>/design/connect.facebook.net/en_US/fbevents.js");
     // Insert Your Facebook Pixel ID below.
     fbq('init', '905600829489553');
     fbq('track', 'PageView');
@@ -75,7 +75,7 @@
     //<![CDATA[
     (function () {
         function asyncLoad() {
-            var urls = ["./hstatic.net/652/1000177652/20/2017/4-10/noname.js"];
+            var urls = ["<?php echo public_url('site')?>/design/js/noname.js"];
             for (var i = 0; i < urls.length; i++) {
                 var s = document.createElement('script');
                 s.type = 'text/javascript';

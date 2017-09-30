@@ -54,7 +54,7 @@
             <div class="col-md-5">
                 <div class="quickview-image image-zoom">
                     <img class="p-product-image-feature"
-                         src="./product.hstatic.net/1000177652/product/1_e0ed7c0240734782a8268793dce0b9b8_large.jpg"
+                         src="<?php echo upload_url('product');?>/1_e0ed7c0240734782a8268793dce0b9b8_large.jpg"
                          alt="ĐỒNG HỒ NAM SKMEI KIM XANH DƯƠNG">
                 </div>
                 <div id="quickview-sliderproduct">
@@ -64,20 +64,20 @@
                                 <div class="owl-wrapper" style="width: 600px; left: 0px; display: block;">
                                     <div class="owl-item" style="width: 100px;">
                                         <li class="product-thumb active"><a href="javascript:void(0);"
-                                                                            data-image="./product.hstatic.net/1000177652/product/1_e0ed7c0240734782a8268793dce0b9b8_large.jpg">
-                                                <img src="./product.hstatic.net/1000177652/product/1_e0ed7c0240734782a8268793dce0b9b8_small.jpg"></a>
+                                                                            data-image="<?php echo upload_url('product');?>/1_e0ed7c0240734782a8268793dce0b9b8_large.jpg">
+                                                <img src="<?php echo upload_url('product');?>/1_e0ed7c0240734782a8268793dce0b9b8_small.jpg"></a>
                                         </li>
                                     </div>
                                     <div class="owl-item" style="width: 100px;">
                                         <li class="product-thumb"><a href="javascript:void(0);"
-                                                                     data-image="./product.hstatic.net/1000177652/product/2_85fc5908867e488da92b768cb240477d_large.jpg">
-                                                <img src="./product.hstatic.net/1000177652/product/2_85fc5908867e488da92b768cb240477d_small.jpg"></a>
+                                                                     data-image="<?php echo upload_url('product');?>/2_85fc5908867e488da92b768cb240477d_large.jpg">
+                                                <img src="<?php echo upload_url('product');?>/2_85fc5908867e488da92b768cb240477d_small.jpg"></a>
                                         </li>
                                     </div>
                                     <div class="owl-item" style="width: 100px;">
                                         <li class="product-thumb"><a href="javascript:void(0);"
-                                                                     data-image="./product.hstatic.net/1000177652/product/3_30be00d496bb474aa0e9324311dd02f0_large.jpg">
-                                                <img src="./product.hstatic.net/1000177652/product/3_30be00d496bb474aa0e9324311dd02f0_small.jpg"></a>
+                                                                     data-image="<?php echo upload_url('product');?>/3_30be00d496bb474aa0e9324311dd02f0_large.jpg">
+                                                <img src="<?php echo upload_url('product');?>/3_30be00d496bb474aa0e9324311dd02f0_small.jpg"></a>
                                         </li>
                                     </div>
                                 </div>
@@ -324,7 +324,7 @@
 
                                     <h1>
                                         <a href="http://happylive.vn">
-                                            <img src="./theme.hstatic.net/1000177652/1000229231/14/logo.png?v=90"
+                                            <img src="<?php echo public_url('site')?>/design/14/logo.png?v=90"
                                                  alt="Happylive" class="img-responsive logoimg"/>
                                         </a>
                                     </h1>
@@ -373,7 +373,7 @@
                                             <tr>
                                                 <td class="img">
                                                     <a href="/products/dong-ho-nam-skmei-kim-xanh-duong">
-                                                        <img src="./product.hstatic.net/1000177652/product/1_e0ed7c0240734782a8268793dce0b9b8_small.jpg "
+                                                        <img src="<?php echo upload_url('product');?>/1_e0ed7c0240734782a8268793dce0b9b8_small.jpg "
                                                              alt="ĐỒNG HỒ NAM SKMEI KIM XANH DƯƠNG"/>
                                                     </a>
                                                 </td>
@@ -396,7 +396,7 @@
                                             <tr>
                                                 <td class="img">
                                                     <a href="/products/dong-ho-nam-tevise-1952-chay-co-cuc-chat">
-                                                        <img src="./product.hstatic.net/1000177652/product/7_0590d26379fb4da3ba8d9b57564ee6b0_small.jpg "
+                                                        <img src="<?php echo upload_url('product');?>/7_0590d26379fb4da3ba8d9b57564ee6b0_small.jpg "
                                                              alt="ĐỒNG HỒ NAM TEVISE 1952 CHẠY CƠ CỰC CHẤT"/>
                                                     </a>
                                                 </td>
@@ -467,7 +467,7 @@
 
                                     <h1 class="logo logo-mobile">
                                         <a href="http://happylive.vn">
-                                            <img src="./theme.hstatic.net/1000177652/1000229231/14/logo.png?v=90"
+                                            <img src="<?php echo public_url('site');?>/design/14/logo.png?v=90"
                                                  alt="Happylive" class="img-responsive logoimg"/>
                                         </a>
                                     </h1>
@@ -599,31 +599,22 @@
 
                                     </ul>
                                 </li>
-
-
                                 <li>
                                     <a href="/pages/dich-vu" class="" title="Dịch vụ">
                                         <span>Dịch vụ</span>
                                     </a>
                                 </li>
-
-
                                 <li>
                                     <a href="/pages/gioi-thieu" class="" title="Giới thiệu">
                                         <span>Giới thiệu</span>
                                     </a>
                                 </li>
-
-
                                 <li>
                                     <a href="/blogs/news" class="" title="Blog">
                                         <span>Blog</span>
                                     </a>
                                 </li>
-
-
                             </ul>
-
                         </div>
                         <div class="hidden-xs pull-right right-menu">
                             <ul class="nav navbar-nav pull-right">
@@ -650,7 +641,7 @@
                     $(window).resize(function () {
                         $('li.dropdown li.active').parents('.dropdown').addClass('active');
                         if ($('.right-menu').width() + $('#navbar').width() > $('.check_nav.nav-wrapper').width() - 40) {
-                            $('.nav-wrapper').addClass('responsive-menu');
+                            $( '.nav-wrapper').addClass('responsive-menu');
                         }
                         else {
                             $('.nav-wrapper').removeClass('responsive-menu');
@@ -674,23 +665,17 @@
                             })
                         }
                     })
-
-
                 </script>
             </nav>
-
-
             <!-- Begin slider -->
             <div class="slider-default bannerslider">
                 <div class="hrv-banner-container">
                     <div class="hrvslider">
                         <ul class="slides">
-
-
                             <li>
                                 <a href="/collections/dong-ho-nam-rolex" class="hrv-url">
                                     <img class="img-responsive"
-                                         src="./theme.hstatic.net/1000177652/1000229231/14/slideshow_1.jpg?v=90"
+                                         src="<?php echo public_url('site');?>/design/14/slideshow_1.jpg?v=90"
                                          alt="Thời trang nam"/>
                                 </a>
                                 <div id="hrv-banner-caption1" class="hrv-caption hrv-banner-caption">
@@ -705,12 +690,10 @@
                                     </div>
                                 </div>
                             </li>
-
-
                             <li>
                                 <a href="/collections/dong-ho-nam-tissot" class="hrv-url">
                                     <img class="img-responsive"
-                                         src="./theme.hstatic.net/1000177652/1000229231/14/slideshow_2.jpg?v=90"
+                                         src="<?php echo public_url('site');?>/design/14/slideshow_2.jpg?v=90"
                                          alt=""/>
                                 </a>
                                 <div id="hrv-banner-caption2" class="hrv-caption hrv-banner-caption">
@@ -730,7 +713,7 @@
                             <li>
                                 <a href="/collections/cap-dong-ho-tinh-yeu" class="hrv-url">
                                     <img class="img-responsive"
-                                         src="./theme.hstatic.net/1000177652/1000229231/14/slideshow_3.jpg?v=90"
+                                         src="<?php echo public_url('site');?>/design/14/slideshow_3.jpg?v=90"
                                          alt=""/>
                                 </a>
                                 <div id="hrv-banner-caption3" class="hrv-caption hrv-banner-caption">
@@ -776,24 +759,18 @@
                             afterMove: nextslide,
                             afterInit: nextslide,
                         });
-
                         function nextslide() {
                             $(".hrv-banner-container .owl-item .hrv-banner-caption").css('display', 'none');
                             $(".hrv-banner-container .owl-item .hrv-banner-caption").removeClass('hrv-caption')
                             $(".hrv-banner-container .owl-item.active .hrv-banner-caption").css('display', 'block');
-
                             var heading = $('.hrv-banner-container .owl-item.active .hrv-banner-caption').clone().removeClass();
                             $('.hrv-banner-container .owl-item.active .hrv-banner-caption').remove();
                             $('.hrv-banner-container .owl-item.active>li').append(heading);
                             $('.hrv-banner-container .owl-item.active>li>div').addClass('hrv-banner-caption hrv-caption');
                         }
-
                     }
                 })
-
             </script>
-
-
         </div>
         <section id="content" class="clearfix container">
             <div class="row">
@@ -811,7 +788,7 @@
 
                                         <h3>Sản phẩm bán chạy</h3>
                                         <span class="icon"><img
-                                                    src="./theme.hstatic.net/1000177652/1000229231/14/icon_featured.png?v=90"
+                                                    src="<?php echo public_url('site');?>/design/14/icon_featured.png?v=90"
                                                     alt=""></span>
 
                                     </aside>
@@ -835,10 +812,10 @@
                                                title="ĐỒNG HỒ NAM SKMEI KIM XANH DƯƠNG">
                                                 <img class="first-image  has-img"
                                                      alt=" ĐỒNG HỒ NAM SKMEI KIM XANH DƯƠNG "
-                                                     src="./product.hstatic.net/1000177652/product/1_e0ed7c0240734782a8268793dce0b9b8_large.jpg"/>
+                                                     src="<?php echo upload_url('product');?>/1_e0ed7c0240734782a8268793dce0b9b8_large.jpg"/>
 
                                                 <img class="second-image"
-                                                     src="./product.hstatic.net/1000177652/product/2_85fc5908867e488da92b768cb240477d_large.jpg"
+                                                     src="<?php echo upload_url('product');?>/2_85fc5908867e488da92b768cb240477d_large.jpg"
                                                      alt=" ĐỒNG HỒ NAM SKMEI KIM XANH DƯƠNG "/>
 
                                             </a>
@@ -899,10 +876,10 @@
                                                title="ĐỒNG HỒ NAM TEVISE 1952 CHẠY CƠ CỰC CHẤT">
                                                 <img class="first-image  has-img"
                                                      alt=" ĐỒNG HỒ NAM TEVISE 1952 CHẠY CƠ CỰC CHẤT "
-                                                     src="./product.hstatic.net/1000177652/product/7_0590d26379fb4da3ba8d9b57564ee6b0_large.jpg"/>
+                                                     src="<?php echo upload_url('product');?>/7_0590d26379fb4da3ba8d9b57564ee6b0_large.jpg"/>
 
                                                 <img class="second-image"
-                                                     src="./product.hstatic.net/1000177652/product/10_large.jpg"
+                                                     src="<?php echo upload_url('product');?>/10_large.jpg"
                                                      alt=" ĐỒNG HỒ NAM TEVISE 1952 CHẠY CƠ CỰC CHẤT "/>
 
                                             </a>
@@ -967,10 +944,10 @@
                                                title="ĐỒNG HỒ NAM TEVISE CHẠY CƠ MẶT CHẠM RỘNG CỰC SANG.">
                                                 <img class="first-image  has-img"
                                                      alt=" ĐỒNG HỒ NAM TEVISE CHẠY CƠ MẶT CHẠM RỘNG CỰC SANG. "
-                                                     src="./product.hstatic.net/1000177652/product/1_ce1a513f5b4e432fa372126291449cac_large.jpg"/>
+                                                     src="<?php echo upload_url('product');?>/1_ce1a513f5b4e432fa372126291449cac_large.jpg"/>
 
                                                 <img class="second-image"
-                                                     src="./product.hstatic.net/1000177652/product/4_4f633974980d4c87b3652a202a3f1f38_large.jpg"
+                                                     src="<?php echo upload_url('product');?>/4_4f633974980d4c87b3652a202a3f1f38_large.jpg"
                                                      alt=" ĐỒNG HỒ NAM TEVISE CHẠY CƠ MẶT CHẠM RỘNG CỰC SANG. "/>
 
                                             </a>
@@ -1035,10 +1012,10 @@
                                                title="ĐỒNG HỒ NAM TEVISE CHẠY CƠ MẶT CHẠM RỘNG CỰC SANG.">
                                                 <img class="first-image  has-img"
                                                      alt=" ĐỒNG HỒ NAM TEVISE CHẠY CƠ MẶT CHẠM RỘNG CỰC SANG. "
-                                                     src="./product.hstatic.net/1000177652/product/582a59a31d974d1dc5b1fec7-3-original_large.jpg"/>
+                                                     src="<?php echo upload_url('product');?>/582a59a31d974d1dc5b1fec7-3-original_large.jpg"/>
 
                                                 <img class="second-image"
-                                                     src="./product.hstatic.net/1000177652/product/58a8390735d131532b2a8cf4-6-original_large.jpg"
+                                                     src="<?php echo upload_url('product');?>/58a8390735d131532b2a8cf4-6-original_large.jpg"
                                                      alt=" ĐỒNG HỒ NAM TEVISE CHẠY CƠ MẶT CHẠM RỘNG CỰC SANG. "/>
 
                                             </a>
@@ -1103,10 +1080,10 @@
                                                title="ĐỒNG HỒ NAM TEVISE MẶT TRẮNG CHẠY CƠ CỰC CHẤT">
                                                 <img class="first-image  has-img"
                                                      alt=" ĐỒNG HỒ NAM TEVISE MẶT TRẮNG CHẠY CƠ CỰC CHẤT "
-                                                     src="./product.hstatic.net/1000177652/product/1_ab30605be61d4f99bd2306a6a537cfb7_large.jpg"/>
+                                                     src="<?php echo upload_url('product');?>/1_ab30605be61d4f99bd2306a6a537cfb7_large.jpg"/>
 
                                                 <img class="second-image"
-                                                     src="./product.hstatic.net/1000177652/product/2_688f14ff08684d938f519838b561e591_large.jpg"
+                                                     src="<?php echo upload_url('product');?>/2_688f14ff08684d938f519838b561e591_large.jpg"
                                                      alt=" ĐỒNG HỒ NAM TEVISE MẶT TRẮNG CHẠY CƠ CỰC CHẤT "/>
 
                                             </a>
@@ -1171,10 +1148,10 @@
                                                title="ĐỒNG HỒ NỮ HALEI MẶT TRẮNG CỰC SANG TRỌNG">
                                                 <img class="first-image  has-img"
                                                      alt=" ĐỒNG HỒ NỮ HALEI MẶT TRẮNG CỰC SANG TRỌNG "
-                                                     src="./product.hstatic.net/1000177652/product/2_7453709ca9af4307986c2baae91c627e_large.jpg"/>
+                                                     src="<?php echo upload_url('product');?>/2_7453709ca9af4307986c2baae91c627e_large.jpg"/>
 
                                                 <img class="second-image"
-                                                     src="./product.hstatic.net/1000177652/product/1_d7ec19b25d62457fa22b91efb86fc494_large.jpg"
+                                                     src="<?php echo upload_url('product');?>/1_d7ec19b25d62457fa22b91efb86fc494_large.jpg"
                                                      alt=" ĐỒNG HỒ NỮ HALEI MẶT TRẮNG CỰC SANG TRỌNG "/>
 
                                             </a>
@@ -1239,10 +1216,10 @@
                                                title="Đồng hồ nữ Skmei 1281 dây da màu đỏ gắn đá cực xinh">
                                                 <img class="first-image  has-img"
                                                      alt=" Đồng hồ nữ Skmei 1281 dây da màu đỏ gắn đá cực xinh "
-                                                     src="./product.hstatic.net/1000177652/product/593f6b19f853ce46eeb4d29e-contest_large.jpg"/>
+                                                     src="<?php echo upload_url('product');?>/593f6b19f853ce46eeb4d29e-contest_large.jpg"/>
 
                                                 <img class="second-image"
-                                                     src="./product.hstatic.net/1000177652/product/593f6b19f853ce46eeb4d29e-2-contest_large.jpg"
+                                                     src="<?php echo upload_url('product');?>/593f6b19f853ce46eeb4d29e-2-contest_large.jpg"
                                                      alt=" Đồng hồ nữ Skmei 1281 dây da màu đỏ gắn đá cực xinh "/>
 
                                             </a>
@@ -1306,10 +1283,10 @@
                                             <a href="/products/dong-ho-skmei-day-da-cuc-men"
                                                title="ĐỒNG HỒ SKMEI DÂY DA CỰC MEN">
                                                 <img class="first-image  has-img" alt=" ĐỒNG HỒ SKMEI DÂY DA CỰC MEN "
-                                                     src="./product.hstatic.net/1000177652/product/1_724cffaf3cd6490c82fc9d5feea7f60b_large.jpg"/>
+                                                     src="<?php echo upload_url('product');?>/1_724cffaf3cd6490c82fc9d5feea7f60b_large.jpg"/>
 
                                                 <img class="second-image"
-                                                     src="./product.hstatic.net/1000177652/product/2_7fdf2cba3a9c47b086f8f314ec99382b_large.jpg"
+                                                     src="<?php echo upload_url('product');?>/2_7fdf2cba3a9c47b086f8f314ec99382b_large.jpg"
                                                      alt=" ĐỒNG HỒ SKMEI DÂY DA CỰC MEN "/>
 
                                             </a>
@@ -1396,7 +1373,7 @@
 
                                         <h3>Sản phẩm mới</h3>
                                         <span class="icon"><img
-                                                    src="./theme.hstatic.net/1000177652/1000229231/14/icon_sale.png?v=90"
+                                                    src="<?php echo public_url('site');?>/design/14/icon_sale.png?v=90"
                                                     alt="Newest trends"></span>
 
                                     </aside>
@@ -1422,10 +1399,10 @@
                                                title="ĐỒNG HỒ NAM SKMEI CÓ LỊCH MỎ RỘNG">
                                                 <img class="first-image  has-img"
                                                      alt=" ĐỒNG HỒ NAM SKMEI CÓ LỊCH MỎ RỘNG "
-                                                     src="./product.hstatic.net/1000177652/product/1_8dc682692fec4967843d81915f827888_large.jpg"/>
+                                                     src="<?php echo upload_url('product');?>/1_8dc682692fec4967843d81915f827888_large.jpg"/>
 
                                                 <img class="second-image"
-                                                     src="./product.hstatic.net/1000177652/product/2_38d65a0a0c1a483cbeb02046b329a2ed_large.jpg"
+                                                     src="<?php echo upload_url('product');?>/2_38d65a0a0c1a483cbeb02046b329a2ed_large.jpg"
                                                      alt=" ĐỒNG HỒ NAM SKMEI CÓ LỊCH MỎ RỘNG "/>
 
                                             </a>
@@ -1488,10 +1465,10 @@
                                                title="ĐỒNG HỒ NAM SKMEI CỰC ĐẸP CỰC CUỐN HÚT">
                                                 <img class="first-image  has-img"
                                                      alt=" ĐỒNG HỒ NAM SKMEI CỰC ĐẸP CỰC CUỐN HÚT "
-                                                     src="./product.hstatic.net/1000177652/product/1_96f3e1495bac48dd831ec86597085a04_large.jpg"/>
+                                                     src="<?php echo upload_url('product');?>/1_96f3e1495bac48dd831ec86597085a04_large.jpg"/>
 
                                                 <img class="second-image"
-                                                     src="./product.hstatic.net/1000177652/product/2_0692671689314bd8aeeaf160563abacd_large.jpg"
+                                                     src="<?php echo upload_url('product');?>/2_0692671689314bd8aeeaf160563abacd_large.jpg"
                                                      alt=" ĐỒNG HỒ NAM SKMEI CỰC ĐẸP CỰC CUỐN HÚT "/>
 
                                             </a>
@@ -1556,10 +1533,10 @@
                                                title="ĐỒNG HỒ NỮ BEESISTER MẶT ĐÍNH ĐÁ CỨC SANG">
                                                 <img class="first-image  has-img"
                                                      alt=" ĐỒNG HỒ NỮ BEESISTER MẶT ĐÍNH ĐÁ CỨC SANG "
-                                                     src="./product.hstatic.net/1000177652/product/1_e7ec8d67eafb460db8865a5747c89a24_large.jpg"/>
+                                                     src="<?php echo upload_url('product');?>/1_e7ec8d67eafb460db8865a5747c89a24_large.jpg"/>
 
                                                 <img class="second-image"
-                                                     src="./product.hstatic.net/1000177652/product/2_8e8c976ba38243b098a8b827273cb5bc_large.jpg"
+                                                     src="<?php echo upload_url('product');?>/2_8e8c976ba38243b098a8b827273cb5bc_large.jpg"
                                                      alt=" ĐỒNG HỒ NỮ BEESISTER MẶT ĐÍNH ĐÁ CỨC SANG "/>
 
                                             </a>
@@ -1623,10 +1600,10 @@
                                                title="ĐỒNG HỒ NỮ BEESISTER MÀU VÀNG MẶT TRÒN CỰC SANG">
                                                 <img class="first-image  has-img"
                                                      alt=" ĐỒNG HỒ NỮ BEESISTER MÀU VÀNG MẶT TRÒN CỰC SANG "
-                                                     src="./product.hstatic.net/1000177652/product/6_f20ebeefb7744b3e959e44c455b9387a_large.jpg"/>
+                                                     src="<?php echo upload_url('product');?>/6_f20ebeefb7744b3e959e44c455b9387a_large.jpg"/>
 
                                                 <img class="second-image"
-                                                     src="./product.hstatic.net/1000177652/product/7_88220065b60b45c29c0aa3ca9f76c6c4_large.jpg"
+                                                     src="<?php echo upload_url('product');?>/7_88220065b60b45c29c0aa3ca9f76c6c4_large.jpg"
                                                      alt=" ĐỒNG HỒ NỮ BEESISTER MÀU VÀNG MẶT TRÒN CỰC SANG "/>
 
                                             </a>
@@ -1691,10 +1668,10 @@
                                                title="ĐỒNG HỒ NỮ BS MẶT CHỮ NHẬT GẮN ĐÁ CỰC CHẤT">
                                                 <img class="first-image  has-img"
                                                      alt=" ĐỒNG HỒ NỮ BS MẶT CHỮ NHẬT GẮN ĐÁ CỰC CHẤT "
-                                                     src="./product.hstatic.net/1000177652/product/4_1f54cfe4261847f5806805b49ff2c0a3_large.jpg"/>
+                                                     src="<?php echo upload_url('product');?>/4_1f54cfe4261847f5806805b49ff2c0a3_large.jpg"/>
 
                                                 <img class="second-image"
-                                                     src="./product.hstatic.net/1000177652/product/efeb2317f2344d244abdb6b0dafb6f8d_large.jpg"
+                                                     src="<?php echo upload_url('product');?>/efeb2317f2344d244abdb6b0dafb6f8d_large.jpg"
                                                      alt=" ĐỒNG HỒ NỮ BS MẶT CHỮ NHẬT GẮN ĐÁ CỰC CHẤT "/>
 
                                             </a>
@@ -1759,10 +1736,10 @@
                                                title="ĐỒNG HỒ NỮ HALEI MẶT TRẮNG CỰC SANG TRỌNG">
                                                 <img class="first-image  has-img"
                                                      alt=" ĐỒNG HỒ NỮ HALEI MẶT TRẮNG CỰC SANG TRỌNG "
-                                                     src="./product.hstatic.net/1000177652/product/2_7453709ca9af4307986c2baae91c627e_large.jpg"/>
+                                                     src="<?php echo upload_url('product');?>/2_7453709ca9af4307986c2baae91c627e_large.jpg"/>
 
                                                 <img class="second-image"
-                                                     src="./product.hstatic.net/1000177652/product/1_d7ec19b25d62457fa22b91efb86fc494_large.jpg"
+                                                     src="<?php echo upload_url('product');?>/1_d7ec19b25d62457fa22b91efb86fc494_large.jpg"
                                                      alt=" ĐỒNG HỒ NỮ HALEI MẶT TRẮNG CỰC SANG TRỌNG "/>
 
                                             </a>
@@ -1827,10 +1804,10 @@
                                                title="Đồng hồ nữ Skmei 1281 dây da màu đỏ gắn đá cực xinh">
                                                 <img class="first-image  has-img"
                                                      alt=" Đồng hồ nữ Skmei 1281 dây da màu đỏ gắn đá cực xinh "
-                                                     src="./product.hstatic.net/1000177652/product/593f6b19f853ce46eeb4d29e-contest_large.jpg"/>
+                                                     src="<?php echo upload_url('product');?>/593f6b19f853ce46eeb4d29e-contest_large.jpg"/>
 
                                                 <img class="second-image"
-                                                     src="./product.hstatic.net/1000177652/product/593f6b19f853ce46eeb4d29e-2-contest_large.jpg"
+                                                     src="<?php echo upload_url('product');?>/593f6b19f853ce46eeb4d29e-2-contest_large.jpg"
                                                      alt=" Đồng hồ nữ Skmei 1281 dây da màu đỏ gắn đá cực xinh "/>
 
                                             </a>
@@ -1895,10 +1872,10 @@
                                                title="ĐỒNG HỒ SKMEI DÂY DA MẪU DH03 CHẠY FULL KIM">
                                                 <img class="first-image  has-img"
                                                      alt=" ĐỒNG HỒ SKMEI DÂY DA MẪU DH03 CHẠY FULL KIM "
-                                                     src="./product.hstatic.net/1000177652/product/1_cfd2a2d52eb44e74b0ad5da426f861a7_large.jpg"/>
+                                                     src="<?php echo upload_url('product');?>/1_cfd2a2d52eb44e74b0ad5da426f861a7_large.jpg"/>
 
                                                 <img class="second-image"
-                                                     src="./product.hstatic.net/1000177652/product/2_78b0f26f2bca4105b2b1cc08f29414e0_large.jpg"
+                                                     src="<?php echo upload_url('product');?>/2_78b0f26f2bca4105b2b1cc08f29414e0_large.jpg"
                                                      alt=" ĐỒNG HỒ SKMEI DÂY DA MẪU DH03 CHẠY FULL KIM "/>
 
                                             </a>
@@ -1966,7 +1943,7 @@
                                     <div class="block-home-category">
                                         <a href="http://happylive.vn/collections/dong-ho-nam">
                                             <img class="b-lazy b-loaded"
-                                                 src="./theme.hstatic.net/1000177652/1000229231/14/block_home_category1.jpg?v=90"
+                                                 src="<?php echo public_url('site');?>/design/14/block_home_category1.jpg?v=90"
                                                  alt="nam">
                                         </a>
                                     </div>
@@ -1977,7 +1954,7 @@
                                     <div class="block-home-category">
                                         <a href="http://happylive.vn/collections/dong-ho-nu">
                                             <img class="b-lazy b-loaded"
-                                                 src="./theme.hstatic.net/1000177652/1000229231/14/block_home_category2.jpg?v=90"
+                                                 src="<?php echo public_url('site');?>/design/14/block_home_category2.jpg?v=90"
                                                  alt="nữ">
                                         </a>
                                     </div>
@@ -2190,7 +2167,7 @@
                                             if (d.getElementById(id)) return;
                                             js = d.createElement(s);
                                             js.id = id;
-                                            js.src = "./connect.facebook.net/en_US/sdk.js#xfbml=1&appId=263266547210244&version=v2.0";
+                                            js.src = "<?php echo public_url('site');?>/design/connect.facebook.net/en_US/sdk.js#xfbml=1&appId=263266547210244&version=v2.0";
                                             fjs.parentNode.insertBefore(js, fjs);
                                         }(document, 'script', 'facebook-jssdk'));
                                     </script>
@@ -2249,7 +2226,7 @@
                                 </tr>
                                 <tr class="line-item">
                                     <td class="item-image"><img
-                                                src="./product.hstatic.net/1000177652/product/7_0590d26379fb4da3ba8d9b57564ee6b0_small.jpg">
+                                                src="<?php echo upload_url('product');?>/7_0590d26379fb4da3ba8d9b57564ee6b0_small.jpg">
                                     </td>
                                     <td class="item-title">
                                         <a href="/products/dong-ho-nam-tevise-1952-chay-co-cuc-chat">ĐỒNG HỒ NAM TEVISE
@@ -2264,7 +2241,7 @@
                                 </tr>
                                 <tr class="line-item">
                                     <td class="item-image"><img
-                                                src="./product.hstatic.net/1000177652/product/1_e0ed7c0240734782a8268793dce0b9b8_small.jpg">
+                                                src="<?php echo upload_url('product');?>/1_e0ed7c0240734782a8268793dce0b9b8_small.jpg">
                                     </td>
                                     <td class="item-title">
                                         <a href="/products/dong-ho-nam-skmei-kim-xanh-duong">ĐỒNG HỒ NAM SKMEI KIM XANH
