@@ -828,7 +828,7 @@ min-width: 225px!important;
 	border-bottom: 4px dashed transparent;
 	border-left: 4px solid;
 }
-***********MENU *******/
+/************MENU *******!*/
 @media (min-width: 768px) {
 	.navbar-header {
 		float: left;
