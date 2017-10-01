@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <?php $this->load->view('site/head'); ?>
@@ -38,14 +37,12 @@
 </nav>
 <div id="page">
     <div id="quick-view-modal" class="wrapper-quickview" style="display: none;">
-        <div class="quickviewOverlay">
-        </div>
+        <div class="quickviewOverlay"></div>
         <div class="jsQuickview">
             <div class="modal-header clearfix" style="width: 100%">
                 <a href="/products/dong-ho-nam-skmei-kim-xanh-duong" class="quickview-title text-left"
                    title="ĐỒNG HỒ NAM SKMEI KIM XANH DƯƠNG">
-                    <h4 class="p-title modal-title">
-                        ĐỒNG HỒ NAM SKMEI KIM XANH DƯƠNG</h4>
+                    <h4 class="p-title modal-title">ĐỒNG HỒ NAM SKMEI KIM XANH DƯƠNG</h4>
                 </a>
                 <div class="quickview-close">
                     <a href="javascript:void(0);"><i class="fa fa-times"></i></a>
@@ -53,9 +50,7 @@
             </div>
             <div class="col-md-5">
                 <div class="quickview-image image-zoom">
-                    <img class="p-product-image-feature"
-                         src="<?php echo upload_url('product');?>/1_e0ed7c0240734782a8268793dce0b9b8_large.jpg"
-                         alt="ĐỒNG HỒ NAM SKMEI KIM XANH DƯƠNG">
+                    <img class="p-product-image-feature" src="<?php echo upload_url('product');?>/1_e0ed7c0240734782a8268793dce0b9b8_large.jpg" alt="ĐỒNG HỒ NAM SKMEI KIM XANH DƯƠNG">
                 </div>
                 <div id="quickview-sliderproduct">
                     <div class="quickview-slider">
@@ -89,12 +84,8 @@
                                     </div>
                                 </div>
                                 <div class="owl-buttons">
-                                    <div class="owl-prev">
-                                        owl-prev
-                                    </div>
-                                    <div class="owl-next">
-                                        owl-next
-                                    </div>
+                                    <div class="owl-prev">owl-prev</div>
+                                    <div class="owl-next">owl-next</div>
                                 </div>
                             </div>
                         </ul>
@@ -321,14 +312,12 @@
                             <div class="row">
                                 <div class="col-lg-12 col-md-12 col-sm-7 col-xs-7">
                                     <!-- LOGO -->
-
                                     <h1>
                                         <a href="http://happylive.vn">
                                             <img src="<?php echo public_url('site')?>/design/14/logo.png?v=90"
                                                  alt="Happylive" class="img-responsive logoimg"/>
                                         </a>
                                     </h1>
-
                                     <h1 style="display:none">
                                         <a href="/">Happylive</a>
                                     </h1>
@@ -457,6 +446,9 @@
                     </div>
                 </div>
             </header>
+
+<!--            -->
+
             <nav class="navbar-main navbar navbar-default cl-pri">
                 <!-- MENU MAIN -->
                 <div class="container nav-wrapper check_nav">
@@ -507,8 +499,7 @@
                                             <input type="text" name="q" placeholder="Tìm kiếm sản phẩm ..."/>
                                             <button type="submit" class="icon-search">
                                                 <svg class="icon-search_white">
-                                                    <use xmlns:xlink="./www.w3.org/1999/xlink"
-                                                         xlink:href="#icon-search_white"/>
+                                                    <use xmlns:xlink="./www.w3.org/1999/xlink" xlink:href="#icon-search_white"/>
                                                 </svg>
                                             </button>
                                         </form>
@@ -518,15 +509,11 @@
                         </div>
                         <div id="navbar" class="navbar-collapse collapse">
                             <ul class="nav navbar-nav clearfix">
-
-
                                 <li>
                                     <a href="/" class=" current" title="Trang chủ">
                                         <span>Trang chủ</span>
                                     </a>
                                 </li>
-
-
                                 <li class="dropdown">
                                     <a href="/collections/dong-ho-nam" title="Đồng hồ nam" class="">
                                         <span>Đồng hồ nam</span>
@@ -667,6 +654,8 @@
                     })
                 </script>
             </nav>
+
+
             <!-- Begin slider -->
             <div class="slider-default bannerslider">
                 <div class="hrv-banner-container">
@@ -771,7 +760,9 @@
                     }
                 })
             </script>
+
         </div>
+
         <section id="content" class="clearfix container">
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12">
