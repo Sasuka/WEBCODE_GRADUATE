@@ -11,8 +11,7 @@
                                      alt="Happylive" class="img-responsive logoimg"/>
                             </a>
                         </h1>
-                        <h1 style="display:none">
-                            <a href="/">Happylive</a>
+                        <h1 style="display:none"><a href="/">Happylive</a>
                         </h1>
 
 
