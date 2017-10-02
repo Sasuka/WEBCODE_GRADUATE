@@ -64,7 +64,9 @@
        <?php $this->load->view('site/product_list/menu_sidebar'); ?>
     </div>
     <div class="content-col col-md-9 col-sm-12 col-xs-12" data-sticky_column>
-        <?php $this->load->view('site/product_list/product_list');?>
+<!--        --><?php //$this->load->view('site/product_list/product_list');?>
+
+        <?php $this->load->view('site/product_detail/product_detail');?>
     </div>
 
     <!-- End collection info -->
