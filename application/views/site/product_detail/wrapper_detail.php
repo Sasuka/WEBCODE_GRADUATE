@@ -18,7 +18,7 @@
             </a>
 
             <img class="product-image-feature"
-                 src="./product.hstatic.net/1000177652/product/7_0590d26379fb4da3ba8d9b57564ee6b0_master.jpg"
+                 src="<?php echo upload_url('product');?>/7_0590d26379fb4da3ba8d9b57564ee6b0_master.jpg"
                  alt="ĐỒNG HỒ NAM TEVISE 1952 CHẠY CƠ CỰC CHẤT">
 
 
@@ -27,42 +27,42 @@
 
                     <li class="product-thumb">
                         <a href="javascript:"
-                           data-image="./product.hstatic.net/1000177652/product/7_0590d26379fb4da3ba8d9b57564ee6b0_master.jpg"
-                           data-zoom-image="./product.hstatic.net/1000177652/product/7_0590d26379fb4da3ba8d9b57564ee6b0_master.jpg"
-                           src="./product.hstatic.net/1000177652/product/7_0590d26379fb4da3ba8d9b57564ee6b0_master.jpg">
+                           data-image="<?php echo upload_url('product');?>/7_0590d26379fb4da3ba8d9b57564ee6b0_master.jpg"
+                           data-zoom-image="<?php echo upload_url('product');?>/7_0590d26379fb4da3ba8d9b57564ee6b0_master.jpg"
+                           src="<?php echo upload_url('product');?>/7_0590d26379fb4da3ba8d9b57564ee6b0_master.jpg">
                             <img alt="ĐỒNG HỒ NAM TEVISE 1952 CHẠY CƠ CỰC CHẤT"
-                                 data-image="./product.hstatic.net/1000177652/product/7_0590d26379fb4da3ba8d9b57564ee6b0_master.jpg"
-                                 src="./product.hstatic.net/1000177652/product/7_0590d26379fb4da3ba8d9b57564ee6b0_small.jpg">
+                                 data-image="<?php echo upload_url('product');?>/7_0590d26379fb4da3ba8d9b57564ee6b0_master.jpg"
+                                 src="<?php echo upload_url('product');?>/7_0590d26379fb4da3ba8d9b57564ee6b0_small.jpg">
                         </a></li>
 
                     <li class="product-thumb">
                         <a href="javascript:"
-                           data-image="./product.hstatic.net/1000177652/product/10_master.jpg"
-                           data-zoom-image="./product.hstatic.net/1000177652/product/10_master.jpg"
-                           src="./product.hstatic.net/1000177652/product/10_master.jpg">
+                           data-image="<?php echo upload_url('product');?>/10_master.jpg"
+                           data-zoom-image="<?php echo upload_url('product');?>/10_master.jpg"
+                           src="<?php echo upload_url('product');?>/10_master.jpg">
                             <img alt="ĐỒNG HỒ NAM TEVISE 1952 CHẠY CƠ CỰC CHẤT"
-                                 data-image="./product.hstatic.net/1000177652/product/10_master.jpg"
-                                 src="./product.hstatic.net/1000177652/product/10_small.jpg">
+                                 data-image="<?php echo upload_url('product');?>/10_master.jpg"
+                                 src="<?php echo upload_url('product');?>/10_small.jpg">
                         </a></li>
 
                     <li class="product-thumb">
                         <a href="javascript:"
-                           data-image="./product.hstatic.net/1000177652/product/8_b315af57d3ff4e058cf18a7c6d3c06f6_master.jpg"
-                           data-zoom-image="./product.hstatic.net/1000177652/product/8_b315af57d3ff4e058cf18a7c6d3c06f6_master.jpg"
-                           src="./product.hstatic.net/1000177652/product/8_b315af57d3ff4e058cf18a7c6d3c06f6_master.jpg">
+                           data-image="<?php echo upload_url('product');?>/8_b315af57d3ff4e058cf18a7c6d3c06f6_master.jpg"
+                           data-zoom-image="<?php echo upload_url('product');?>/8_b315af57d3ff4e058cf18a7c6d3c06f6_master.jpg"
+                           src="<?php echo upload_url('product');?>/8_b315af57d3ff4e058cf18a7c6d3c06f6_master.jpg">
                             <img alt="ĐỒNG HỒ NAM TEVISE 1952 CHẠY CƠ CỰC CHẤT"
-                                 data-image="./product.hstatic.net/1000177652/product/8_b315af57d3ff4e058cf18a7c6d3c06f6_master.jpg"
-                                 src="./product.hstatic.net/1000177652/product/8_b315af57d3ff4e058cf18a7c6d3c06f6_small.jpg">
+                                 data-image="<?php echo upload_url('product');?>/8_b315af57d3ff4e058cf18a7c6d3c06f6_master.jpg"
+                                 src="<?php echo upload_url('product');?>/8_b315af57d3ff4e058cf18a7c6d3c06f6_small.jpg">
                         </a></li>
 
                     <li class="product-thumb">
                         <a href="javascript:"
-                           data-image="./product.hstatic.net/1000177652/product/9_master.jpg"
-                           data-zoom-image="./product.hstatic.net/1000177652/product/9_master.jpg"
-                           src="./product.hstatic.net/1000177652/product/9_master.jpg">
+                           data-image="<?php echo upload_url('product');?>/9_master.jpg"
+                           data-zoom-image="<?php echo upload_url('product');?>/9_master.jpg"
+                           src="<?php echo upload_url('product');?>/9_master.jpg">
                             <img alt="ĐỒNG HỒ NAM TEVISE 1952 CHẠY CƠ CỰC CHẤT"
-                                 data-image="./product.hstatic.net/1000177652/product/9_master.jpg"
-                                 src="./product.hstatic.net/1000177652/product/9_small.jpg">
+                                 data-image="<?php echo upload_url('product');?>/9_master.jpg"
+                                 src="<?php echo upload_url('product');?>/9_small.jpg">
                         </a></li>
 
                 </ul>
@@ -379,4 +379,4 @@
 
         </div>
     </div>
-</div>
+</div>  

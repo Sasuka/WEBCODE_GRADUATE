@@ -23,10 +23,10 @@
                            title="ĐỒNG HỒ NAM SKMEI KIM XANH DƯƠNG">
                             <img class="first-image  has-img"
                                  alt=" ĐỒNG HỒ NAM SKMEI KIM XANH DƯƠNG "
-                                 src="./product.hstatic.net/1000177652/product/1_e0ed7c0240734782a8268793dce0b9b8_large.jpg"/>
+                                 src="<?php echo upload_url('product');?>/1_e0ed7c0240734782a8268793dce0b9b8_large.jpg"/>
 
                             <img class="second-image"
-                                 src="./product.hstatic.net/1000177652/product/2_85fc5908867e488da92b768cb240477d_large.jpg"
+                                 src="<?php echo upload_url('product');?>/2_85fc5908867e488da92b768cb240477d_large.jpg"
                                  alt=" ĐỒNG HỒ NAM SKMEI KIM XANH DƯƠNG "/>
 
                         </a>
@@ -92,10 +92,10 @@
                            title="ĐỒNG HỒ NAM TEVISE CHẠY CƠ MẶT CHẠM RỘNG CỰC SANG.">
                             <img class="first-image  has-img"
                                  alt=" ĐỒNG HỒ NAM TEVISE CHẠY CƠ MẶT CHẠM RỘNG CỰC SANG. "
-                                 src="./product.hstatic.net/1000177652/product/582a59a31d974d1dc5b1fec7-3-original_large.jpg"/>
+                                 src="<?php echo upload_url('product');?>/582a59a31d974d1dc5b1fec7-3-original_large.jpg"/>
 
                             <img class="second-image"
-                                 src="./product.hstatic.net/1000177652/product/58a8390735d131532b2a8cf4-6-original_large.jpg"
+                                 src="<?php echo upload_url('product');?>/58a8390735d131532b2a8cf4-6-original_large.jpg"
                                  alt=" ĐỒNG HỒ NAM TEVISE CHẠY CƠ MẶT CHẠM RỘNG CỰC SANG. "/>
 
                         </a>
@@ -161,10 +161,10 @@
                            title="ĐỒNG HỒ NAM TEVISE CHẠY CƠ MẶT CHẠM RỘNG CỰC SANG.">
                             <img class="first-image  has-img"
                                  alt=" ĐỒNG HỒ NAM TEVISE CHẠY CƠ MẶT CHẠM RỘNG CỰC SANG. "
-                                 src="./product.hstatic.net/1000177652/product/1_ce1a513f5b4e432fa372126291449cac_large.jpg"/>
+                                 src="<?php echo upload_url('product');?>/1_ce1a513f5b4e432fa372126291449cac_large.jpg"/>
 
                             <img class="second-image"
-                                 src="./product.hstatic.net/1000177652/product/4_4f633974980d4c87b3652a202a3f1f38_large.jpg"
+                                 src="<?php echo upload_url('product');?>/4_4f633974980d4c87b3652a202a3f1f38_large.jpg"
                                  alt=" ĐỒNG HỒ NAM TEVISE CHẠY CƠ MẶT CHẠM RỘNG CỰC SANG. "/>
 
                         </a>
@@ -230,10 +230,10 @@
                            title="ĐỒNG HỒ NAM TEVISE MẶT TRẮNG CHẠY CƠ CỰC CHẤT">
                             <img class="first-image  has-img"
                                  alt=" ĐỒNG HỒ NAM TEVISE MẶT TRẮNG CHẠY CƠ CỰC CHẤT "
-                                 src="./product.hstatic.net/1000177652/product/1_ab30605be61d4f99bd2306a6a537cfb7_large.jpg"/>
+                                 src="<?php echo upload_url('product');?>/1_ab30605be61d4f99bd2306a6a537cfb7_large.jpg"/>
 
                             <img class="second-image"
-                                 src="./product.hstatic.net/1000177652/product/2_688f14ff08684d938f519838b561e591_large.jpg"
+                                 src="<?php echo upload_url('product');?>/2_688f14ff08684d938f519838b561e591_large.jpg"
                                  alt=" ĐỒNG HỒ NAM TEVISE MẶT TRẮNG CHẠY CƠ CỰC CHẤT "/>
 
                         </a>

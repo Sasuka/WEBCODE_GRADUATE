@@ -323,7 +323,7 @@
 
 
             <!-- Begin slider -->
-            <?php $this->load->view('site/slider');?>
+<!--            --><?php //$this->load->view('site/slider');?>
             <!-- End slider -->
             <script>
                 jQuery(document).ready(function () {
