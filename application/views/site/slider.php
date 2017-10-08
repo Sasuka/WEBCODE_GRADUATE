@@ -1,4 +1,3 @@
-<div class="slider-default bannerslider">
     <div class="hrv-banner-container">
         <div class="hrvslider">
             <ul class="slides">
@@ -58,9 +57,6 @@
                         </div>
                     </div>
                 </li>
-
-
             </ul>
         </div>
     </div>
-</div>

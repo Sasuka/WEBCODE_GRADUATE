@@ -370,9 +370,9 @@
                             if (d.getElementById(id)) return;
                             js = d.createElement(s);
                             js.id = id;
-                            js.src = "./connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.0";
+                            js.src = "<?php echo public_url('site')?>design/connect.facebook.net/en_US/sdk.js";
                             fjs.parentNode.insertBefore(js, fjs);
-                        }(document, 'script', 'facebook-jssdk'));
+                        }(document, 'script', 'facebook-sdk'));
                     </script>
                 </div>
             </div>

@@ -11,7 +11,6 @@
 <!--The header-->
 <?php $this ->load-> view('site/header');?>
 <!--End Header-->
-<?php $this ->load-> view('site/product_order/product_order');?>
 <div id="page">
     <div id="quick-view-modal" class="wrapper-quickview" style="display: none;">
         <div class="quickviewOverlay"></div>
@@ -324,9 +323,7 @@
 
 
             <!-- Begin slider -->
-            <div class="slider-default bannerslider">
-                <?php //$this->load->view('site/slider');?>
-            </div>
+<!--            --><?php //$this->load->view('site/slider');?>
             <!-- End slider -->
             <script>
                 jQuery(document).ready(function () {
@@ -350,36 +347,28 @@
                             afterMove: nextslide,
                             afterInit: nextslide,
                         });
-
                         function nextslide() {
                             $(".hrv-banner-container .owl-item .hrv-banner-caption").css('display', 'none');
                             $(".hrv-banner-container .owl-item .hrv-banner-caption").removeClass('hrv-caption')
                             $(".hrv-banner-container .owl-item.active .hrv-banner-caption").css('display', 'block');
-
                             var heading = $('.hrv-banner-container .owl-item.active .hrv-banner-caption').clone().removeClass();
                             $('.hrv-banner-container .owl-item.active .hrv-banner-caption').remove();
                             $('.hrv-banner-container .owl-item.active>li').append(heading);
                             $('.hrv-banner-container .owl-item.active>li>div').addClass('hrv-banner-caption hrv-caption');
                         }
-
                     }
                 })
-
             </script>
-            <?php $this->load->view('site/news/news_breadcrumb');?>
 
         </div>
 
         <section id="content" class="clearfix container">
-<!--              --><?php //$this->load->view('site/product_detail/product_detail'); ?>
 <!--            --><?php //$this->load->view('site/product_main');?>
 <!--            --><?php //$this->load->view('site/product_list/product_content'); ?>
 <!--                        --><?php //$this->load->view('site/product_cart/product_cart'); ?>
-<!--                --><?php //$this->load->view('site/home/address'); ?>
-                            <?php $this->load->view('site/news/news_content'); ?>
+                <?php $this->load->view('site/home/address'); ?>
 
         </section>
-
         <footer id="footer">
             <div class="footer-bottom">
                <?php $this->load->view('site/footer_bottom');?>
@@ -498,7 +487,7 @@
                 </div>
             </div>
         </div>
-             <svg xmlns="http://www.w3.org/2000/svg" class="hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" class="hidden">
             <symbol id="icon-add-cart">
                 <svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                      viewBox="0 0 512 512" enable-background="new 0 0 512 512">
@@ -620,9 +609,7 @@
                       d="M622.826 702.736c-22.11-3.518-22.614-64.314-22.614-64.314s64.968-64.316 79.128-150.802c38.090 0 61.618-91.946 23.522-124.296 1.59-34.054 48.96-267.324-190.862-267.324s-192.45 233.27-190.864 267.324c-38.094 32.35-14.57 124.296 23.522 124.296 14.158 86.486 79.128 150.802 79.128 150.802s-0.504 60.796-22.614 64.314c-71.22 11.332-337.172 128.634-337.172 257.264h896c0-128.63-265.952-245.932-337.174-257.264z"></path>
             </symbol>
         </svg>
-        </div>
-    </section>
 </div>
-
+</section> </div>
 </body>
 </html>

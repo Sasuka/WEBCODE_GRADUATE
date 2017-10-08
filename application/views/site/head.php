@@ -121,3 +121,8 @@
 <!-- Latest compiled and minified JavaScript -->
 <link href="<?php echo public_url('site')?>/css/font-awesome.min.css" rel='stylesheet' type='text/css' media='all'/>
 <link href="<?php echo public_url('site')?>/css/styles.css?v=90" rel='stylesheet' type='text/css' media='all'/>
+
+<link href="<?php echo public_url('site')?>/design/css/checkouts.css?v=1.1" rel='stylesheet' type='text/css' media='all'/>
+<link href='./theme.hstatic.net/1000177652/1000229231/14/check_out.css?v=90' rel='stylesheet' type='text/css'
+      media='all'/>
+<script src="<?php echo public_url('site')?>/design/js/jquery.validate.js" type='text/javascript'></script>
