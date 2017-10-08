@@ -364,7 +364,10 @@
 
         <section id="content" class="clearfix container">
 <!--            --><?php //$this->load->view('site/product_main');?>
-            <?php $this->load->view('site/product_list/product_content'); ?>
+<!--            --><?php //$this->load->view('site/product_list/product_content'); ?>
+<!--                        --><?php //$this->load->view('site/product_cart/product_cart'); ?>
+                <?php $this->load->view('site/home/address'); ?>
+
         </section>
         <footer id="footer">
             <div class="footer-bottom">

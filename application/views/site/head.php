@@ -94,6 +94,8 @@
 <script src="<?php echo public_url()?>bootstrap/js/bootstrap.min.js"></script>
 <script src="<?php echo public_url('site')?>/js/option_selection.js" type='text/javascript'></script>
 <script src="<?php echo public_url('site')?>/js/api.jquery.js" type='text/javascript'></script>
+<script src="<?php echo public_url('site')?>/js/customer_area.js" type='text/javascript'></script>
+<script src="<?php echo public_url('site')?>/js/haravan_common.js" type='text/javascript'></script>
 <script>
     var formatMoney = '{{amount}}₫';
 </script>
@@ -112,8 +114,8 @@
 <script src="<?php echo public_url('site')?>/design/14/scripts.js?v=90" type='text/javascript'></script>
 <script src="<?php echo public_url('site')?>/design/14/jquery.elevatezoom.min.js?v=90" type='text/javascript'></script>
 <link rel="stylesheet" type="text/css" href="<?php echo public_url('site')?>/css/roboto.css">
-<meta property="og:image" content="http://theme.hstatic.net/1000177652/1000229231/14/share_fb_home.png?v=90"/>
-<meta property="og:image" content="https://theme.hstatic.net/1000177652/1000229231/14/share_fb_home.png?v=90"/>
+<meta property="og:image" content="<?php echo public_url('site')?>/design/14/share_fb_home.png?v=90"/>
+<meta property="og:image" content="<?php echo public_url('site')?>/design/14/share_fb_home.png?v=90"/>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="<?php echo public_url()?>bootstrap/css/bootstrap.min.css">
 <!-- Latest compiled and minified JavaScript -->
