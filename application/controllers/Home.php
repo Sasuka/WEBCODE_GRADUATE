@@ -5,6 +5,7 @@
  * User: tient
  * Date: 29/9/2017
  * Time: 22:13
+ * Trang Home giao diện người dùng.
  */
 class Home extends CI_Controller
 {
@@ -16,11 +17,12 @@ class Home extends CI_Controller
 
     function index()
     {
-        $data = array();
-        $data['temp'] = 'site/home/index';
-        $this->load->view('site/layout', $data);
+        $this->data['temp'] = 'site/home/index';
+        $this->load->view('site/layout', $this->data);
     }
-    function view(){
+
+    function view()
+    {
         $this->load->view('site/home/view');
     }
 }

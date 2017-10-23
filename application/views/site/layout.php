@@ -2,16 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <?php $this->load->view('site/head'); ?>
 </head>
 <body>
 <!--The header-->
-<?php $this ->load-> view('site/header');?>
+<?php $this->load->view('site/header'); ?>
 <!--End Header-->
-<?php $this ->load-> view('site/product_order/product_order');?>
+<?php //$this ->load-> view('site/product_order/product_order');?>
 <div id="page">
     <div id="quick-view-modal" class="wrapper-quickview" style="display: none;">
         <div class="quickviewOverlay"></div>
@@ -27,7 +28,9 @@
             </div>
             <div class="col-md-5">
                 <div class="quickview-image image-zoom">
-                    <img class="p-product-image-feature" src="<?php echo upload_url('product');?>/1_e0ed7c0240734782a8268793dce0b9b8_large.jpg" alt="ĐỒNG HỒ NAM SKMEI KIM XANH DƯƠNG">
+                    <img class="p-product-image-feature"
+                         src="<?php echo upload_url('product'); ?>/1_e0ed7c0240734782a8268793dce0b9b8_large.jpg"
+                         alt="ĐỒNG HỒ NAM SKMEI KIM XANH DƯƠNG">
                 </div>
                 <div id="quickview-sliderproduct">
                     <div class="quickview-slider">
@@ -36,20 +39,20 @@
                                 <div class="owl-wrapper" style="width: 600px; left: 0px; display: block;">
                                     <div class="owl-item" style="width: 100px;">
                                         <li class="product-thumb active"><a href="javascript:void(0);"
-                                                                            data-image="<?php echo upload_url('product');?>/1_e0ed7c0240734782a8268793dce0b9b8_large.jpg">
-                                                <img src="<?php echo upload_url('product');?>/1_e0ed7c0240734782a8268793dce0b9b8_small.jpg"></a>
+                                                                            data-image="<?php echo upload_url('product'); ?>/1_e0ed7c0240734782a8268793dce0b9b8_large.jpg">
+                                                <img src="<?php echo upload_url('product'); ?>/1_e0ed7c0240734782a8268793dce0b9b8_small.jpg"></a>
                                         </li>
                                     </div>
                                     <div class="owl-item" style="width: 100px;">
                                         <li class="product-thumb"><a href="javascript:void(0);"
-                                                                     data-image="<?php echo upload_url('product');?>/2_85fc5908867e488da92b768cb240477d_large.jpg">
-                                                <img src="<?php echo upload_url('product');?>/2_85fc5908867e488da92b768cb240477d_small.jpg"></a>
+                                                                     data-image="<?php echo upload_url('product'); ?>/2_85fc5908867e488da92b768cb240477d_large.jpg">
+                                                <img src="<?php echo upload_url('product'); ?>/2_85fc5908867e488da92b768cb240477d_small.jpg"></a>
                                         </li>
                                     </div>
                                     <div class="owl-item" style="width: 100px;">
                                         <li class="product-thumb"><a href="javascript:void(0);"
-                                                                     data-image="<?php echo upload_url('product');?>/3_30be00d496bb474aa0e9324311dd02f0_large.jpg">
-                                                <img src="<?php echo upload_url('product');?>/3_30be00d496bb474aa0e9324311dd02f0_small.jpg"></a>
+                                                                     data-image="<?php echo upload_url('product'); ?>/3_30be00d496bb474aa0e9324311dd02f0_large.jpg">
+                                                <img src="<?php echo upload_url('product'); ?>/3_30be00d496bb474aa0e9324311dd02f0_small.jpg"></a>
                                         </li>
                                     </div>
                                 </div>
@@ -283,19 +286,19 @@
     <section id="page_content" class="">
         <div id="pageContainer" class="clearfix">
 
-            <?php $this->load->view('site/header_content');?>
+            <?php $this->load->view('site/header_content'); ?>
             <!--            -->
 
             <nav class="navbar-main navbar navbar-default cl-pri">
                 <!-- MENU MAIN -->
-                <?php $this->load->view('site/main_menu');?>
+                <?php $this->load->view('site/main_menu'); ?>
                 <!-- End container  -->
                 <script>
 
                     $(window).resize(function () {
                         $('li.dropdown li.active').parents('.dropdown').addClass('active');
                         if ($('.right-menu').width() + $('#navbar').width() > $('.check_nav.nav-wrapper').width() - 40) {
-                            $( '.nav-wrapper').addClass('responsive-menu');
+                            $('.nav-wrapper').addClass('responsive-menu');
                         }
                         else {
                             $('.nav-wrapper').removeClass('responsive-menu');
@@ -323,69 +326,35 @@
             </nav>
 
 
-            <!-- Begin slider -->
+<!--             Begin slider -->
             <div class="slider-default bannerslider">
-                <?php //$this->load->view('site/slider');?>
+                <?php $this->load->view('site/slider');?>
             </div>
+
             <!-- End slider -->
-            <script>
-                jQuery(document).ready(function () {
-                    if ($('.slides li').size() > 0) {
-                        $(".hrv-banner-container .slides").owlCarousel({
-                            singleItem: true,
-                            autoPlay: 5000,
-                            items: 1,
-                            itemsDesktop: [1199, 1],
-                            itemsDesktopSmall: [980, 1],
-                            itemsTablet: [768, 1],
-                            itemsMobile: [479, 1],
-                            slideSpeed: 500,
-                            paginationSpeed: 500,
-                            rewindSpeed: 500,
-                            addClassActive: true,
-                            navigation: true,
-                            stopOnHover: true,
-                            pagination: false,
-                            scrollPerPage: true,
-                            afterMove: nextslide,
-                            afterInit: nextslide,
-                        });
-
-                        function nextslide() {
-                            $(".hrv-banner-container .owl-item .hrv-banner-caption").css('display', 'none');
-                            $(".hrv-banner-container .owl-item .hrv-banner-caption").removeClass('hrv-caption')
-                            $(".hrv-banner-container .owl-item.active .hrv-banner-caption").css('display', 'block');
-
-                            var heading = $('.hrv-banner-container .owl-item.active .hrv-banner-caption').clone().removeClass();
-                            $('.hrv-banner-container .owl-item.active .hrv-banner-caption').remove();
-                            $('.hrv-banner-container .owl-item.active>li').append(heading);
-                            $('.hrv-banner-container .owl-item.active>li>div').addClass('hrv-banner-caption hrv-caption');
-                        }
-
-                    }
-                })
-
-            </script>
-            <?php $this->load->view('site/news/news_breadcrumb');?>
+            <?php $this->load->view('site/news/news_breadcrumb'); ?>
 
         </div>
 
         <section id="content" class="clearfix container">
-            <!--              --><?php //$this->load->view('site/product_detail/product_detail'); ?>
-            <!--            --><?php //$this->load->view('site/product_main');?>
-            <!--            --><?php //$this->load->view('site/product_list/product_content'); ?>
-            <!--                        --><?php //$this->load->view('site/product_cart/product_cart'); ?>
-            <!--                --><?php //$this->load->view('site/home/address'); ?>
-<!--            --><?php //$this->load->view('site/news/news_content'); ?>
-            <?php $this->load->view('site/product_order/order_complete'); ?>
+<!--            --><?php //$this->load->view('site/product_detail/product_detail'); ?>
+            <!--                        --><?php //$this->load->view('site/product_main');?>
+            <!--                        --><?php //$this->load->view('site/product_list/product_content'); ?>
+            <!--                                    --><?php //$this->load->view('site/product_cart/product_cart'); ?>
+            <!--                            --><?php //$this->load->view('site/home/address'); ?>
+            <!--            --><?php //$this->load->view('site/news/news_content'); ?>
+            <!--            --><?php //$this->load->view('site/product_order/order_complete'); ?>
+            <?php
+            $this->load->view($temp, $this->data);
+            ?>
         </section>
 
         <footer id="footer">
             <div class="footer-bottom">
-                <?php $this->load->view('site/footer_bottom');?>
+                <?php $this->load->view('site/footer_bottom'); ?>
             </div>
             <div class="footer-copyright">
-                <?php $this->load->view('site/footer_copyright');?>
+                <?php $this->load->view('site/footer_copyright'); ?>
             </div>
         </footer>
         <a href="#" class="scrollToTop show">
@@ -425,7 +394,7 @@
                                 </tr>
                                 <tr class="line-item">
                                     <td class="item-image"><img
-                                                src="<?php echo upload_url('product');?>/7_0590d26379fb4da3ba8d9b57564ee6b0_small.jpg">
+                                                src="<?php echo upload_url('product'); ?>/7_0590d26379fb4da3ba8d9b57564ee6b0_small.jpg">
                                     </td>
                                     <td class="item-title">
                                         <a href="/products/dong-ho-nam-tevise-1952-chay-co-cuc-chat">ĐỒNG HỒ NAM TEVISE
@@ -440,7 +409,7 @@
                                 </tr>
                                 <tr class="line-item">
                                     <td class="item-image"><img
-                                                src="<?php echo upload_url('product');?>/1_e0ed7c0240734782a8268793dce0b9b8_small.jpg">
+                                                src="<?php echo upload_url('product'); ?>/1_e0ed7c0240734782a8268793dce0b9b8_small.jpg">
                                     </td>
                                     <td class="item-title">
                                         <a href="/products/dong-ho-nam-skmei-kim-xanh-duong">ĐỒNG HỒ NAM SKMEI KIM XANH
@@ -500,7 +469,7 @@
         </div>
         <svg xmlns="http://www.w3.org/2000/svg" class="hidden">
             <symbol id="icon-add-cart">
-                <svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                      viewBox="0 0 512 512" enable-background="new 0 0 512 512">
                     <g>
                         <g>
@@ -518,7 +487,7 @@
                 </svg>
             </symbol>
             <symbol id="icon-list-switch">
-                <svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                      viewBox="0 0 194.828 194.828" style="enable-background:new 0 0 194.828 194.828;"
                      xml:space="preserve">
 			<g>
@@ -570,7 +539,7 @@
 
             </symbol>
             <symbol id="icon-sort-by">
-                <svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                      viewBox="0 0 490 490" style="enable-background:new 0 0 490 490;" xml:space="preserve">
 			<g>
                 <polygon points="85.877,154.014 85.877,428.309 131.706,428.309 131.706,154.014 180.497,221.213 217.584,194.27 108.792,44.46

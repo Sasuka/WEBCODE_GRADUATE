@@ -59,7 +59,7 @@
 </script>
 <noscript>
     <img height='1' width='1' style='display: none'
-         src='https://www.facebook.com/tr?id=905600829489553&amp;ev=PageView&amp;noscript=1'/></noscript>
+         src='https://www.facebook.com'/></noscript>
 <script type='text/javascript'>
     //<![CDATA[
     if ((typeof Haravan) === 'undefined') {
@@ -123,6 +123,4 @@
 <link href="<?php echo public_url('site')?>/css/styles.css?v=90" rel='stylesheet' type='text/css' media='all'/>
 
 <link href="<?php echo public_url('site')?>/design/css/checkouts.css?v=1.1" rel='stylesheet' type='text/css' media='all'/>
-<link href='./theme.hstatic.net/1000177652/1000229231/14/check_out.css?v=90' rel='stylesheet' type='text/css'
-      media='all'/>
 <script src="<?php echo public_url('site')?>/design/js/jquery.validate.js" type='text/javascript'></script>
