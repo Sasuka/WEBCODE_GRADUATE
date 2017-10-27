@@ -325,25 +325,22 @@
                 </script>
             </nav>
 
+            <?php  $type = "";
+            if($type == "home"){
+                ?>
+                <!-- Begin slider -->
+                <div class="slider-default bannerslider">
+                    <?php $this->load->view('site/slider');?>
+                </div>
+                <!-- End slider -->
+                <?php $this->load->view('site/news/news_breadcrumb'); ?>
+            <?php
+            } ?>
 
-<!--             Begin slider -->
-            <div class="slider-default bannerslider">
-                <?php $this->load->view('site/slider');?>
-            </div>
-
-            <!-- End slider -->
-            <?php $this->load->view('site/news/news_breadcrumb'); ?>
 
         </div>
 
         <section id="content" class="clearfix container">
-<!--            --><?php //$this->load->view('site/product_detail/product_detail'); ?>
-            <!--                        --><?php //$this->load->view('site/product_main');?>
-            <!--                        --><?php //$this->load->view('site/product_list/product_content'); ?>
-            <!--                                    --><?php //$this->load->view('site/product_cart/product_cart'); ?>
-            <!--                            --><?php //$this->load->view('site/home/address'); ?>
-            <!--            --><?php //$this->load->view('site/news/news_content'); ?>
-            <!--            --><?php //$this->load->view('site/product_order/order_complete'); ?>
             <?php
             $this->load->view($temp, $this->data);
             ?>
