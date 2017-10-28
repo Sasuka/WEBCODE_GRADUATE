@@ -14,3 +14,7 @@ function public_url($url = ''){
 function upload_url($url = ''){
     return base_url('uploads/'.$url);
 }
+//Path director folder admin
+//function admin_url($url = ''){
+//    return base_url()
+//}

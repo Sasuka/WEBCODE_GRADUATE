@@ -7,7 +7,7 @@
  * Time: 22:13
  * Trang Home giao diện người dùng.
  */
-class Home extends CI_Controller
+Class Home extends CI_Controller
 {
     function __construct()
     {

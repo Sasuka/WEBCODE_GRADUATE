@@ -10,20 +10,20 @@
             <div class="form-group">
                 <label class="col-sm-3 control-label">Username</label>
                 <div class="col-sm-4">
-                    <input type="text" class="form-control" name="firstname" placeholder="Họ"/>
+                    <input type="text" class="form-control" name="fname" placeholder="Họ" value="<?php echo set_value('fname') ?>"/>
                 </div>
                 <div class="col-sm-2">
-                    <input type="text" class="form-control" name="username" placeholder="Tên"/>
+                    <input type="text" class="form-control" name="username" placeholder="Tên" value="<?php echo set_value('lname') ?>"/>
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-sm-3 control-label">Số ĐT</label>
                 <div class="col-sm-2">
-                    <input type="text" class="form-control" name="phone" placeholder="Số điện thoại liên lạc"/>
+                    <input type="text" class="form-control" name="phone" placeholder="Số điện thoại liên lạc" value="<?php echo set_value('phone') ?>"/>
                 </div>
                 <label class="col-sm-1 control-label">Email</label>
                 <div class="col-sm-3">
-                    <input type="text" class="form-control" name="email" placeholder="Địa chỉ email..."/>
+                    <input type="text" class="form-control" name="email" placeholder="Địa chỉ email..." value="<?php echo set_value('email') ?>"/>
                 </div>
             </div>
             <div class="form-group">
@@ -66,7 +66,7 @@
             <div class="form-group">
                 <label class="col-sm-3 control-label">Ngày sinh</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" name="birthday" id="datepicker" placeholder="DD/MM/YYYY"/>
+                    <input type="text" class="form-control" name="birthday" id="datepicker" placeholder="DD/MM/YYYY" value="<?php echo set_value('birthday') ?>" />
                 </div>
             </div>
 
@@ -146,7 +146,7 @@
                             message: 'The date of birth is required'
                         },
                         date: {
-                            format: 'YYYY/MM/DD',
+                           // format: 'DD/MM/YYYY',
                             message: 'The date of birth is not valid'
                         }
                     }

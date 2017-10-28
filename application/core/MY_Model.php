@@ -1994,5 +1994,22 @@ class MY_Model extends CI_Model
         }
         return $this->db->get()->result_array();
     }
+    /***************TIEN TAI*******************/
+    /*order mặc định (VD: $order = array('id', 'desc'))*/
+    var $order = '';
+    // Các field select mặc định khi get_list (VD: select='id,name')
+    var $select = '';
+    /*
+     * Thêm row mới
+     * $data : là dữ liệu cần thêm.
+     * */
+    public function create($data = array()){
+        if ($this->db->insert($this->table, $data)){
+            return true;
+        }else
+            return false;
+    }
+
+
 
 }
