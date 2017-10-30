@@ -54,3 +54,9 @@
 <link rel="stylesheet" type="text/css" href="<?php echo public_url();?>js/jquery/colorbox/colorbox.css" media="screen" />
 
 <script type="text/javascript" src="<?php echo public_url();?>js/custom_admin.js" type="text/javascript"></script>
+<!-- BootstrapValidator CSS -->
+<link rel="stylesheet" href="<?php echo public_url() . 'bootstrap/css/bootstrapValidator.min.css' ?>"/>
+<link rel="stylesheet" href="<?php echo public_url() . 'bootstrap/css/jquery-ui.css' ?>"/>
+<!-- BootstrapValidator JS -->
+<script type="text/javascript"
+        src="<?php echo public_url() . 'bootstrap/js/bootstrapValidator.min.js' ?>"></script>

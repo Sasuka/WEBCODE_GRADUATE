@@ -139,4 +139,60 @@ class  User extends MY_Controller
         $this->load->view('site/layout', $this->data);
 
     }
+    public function create($data = array())
+    {
+        $data['HO'] = 'Le Thanh';
+        $data['TEN'] = 'Tuan';
+        $data['SDT'] = '1234567890';
+        $data['EMAIL'] = 'tta@f.com';
+        $data['DIACHI'] = '2094 Ngyễn Đình Chiển.';
+        $data['MATKHAU'] = md5(md5('password'));
+        $data['NGAYSINH'] = '20/11/1988';
+        $data['GIOITINH'] = '0';
+        if ($this->customer_model->create($data)){
+            echo 'Thêm thành công';
+        }else{
+            echo 'Thêm thất bại';
+        }
+    }
+    public function update(){
+        $where['MA_KHACHHANG'] = '2';
+        $data['HO'] = 'Le TT';
+        $data['TEN'] = 'Tai';
+        $data['SDT'] = '1232352890';
+        $data['EMAIL'] = 'tta@f.com';
+        $data['DIACHI'] = '2094 Ngyễn Đình Chiển.';
+        $data['MATKHAU'] = md5(md5('password'));
+        $data['NGAYSINH'] = '20/11/1988';
+        $data['GIOITINH'] = '0';
+        if ($this->customer_model->update_rule($where,$data)){
+            echo 'Cập nhật thành công';
+        }else{
+            echo 'Cập nhật thất bại';
+        }
+    }
+    public function delete(){
+        $where['MA_KHACHHANG'] = '2';
+        if ($this->customer_model->del_rule($where)){
+            echo 'Delete thành công';
+        }else{
+            echo 'Delete thất bại';
+        }
+    }
+    public function get_info(){
+        $where['MA_KHACHHANG'] = '3';
+
+        $info = $this->customer_model->get_info_rule($where);
+        echo '<pre>';
+        print_r($info);
+    }
+    public function get_list(){
+        $input = array();
+        $input['select'] = 'TEN';
+//        $input['where'] = array('TEN'=>'Tai');
+        $input['order'] = array('TEN','desc');
+     //   $input['like'] = array('TEN','T');
+        $list = $this->customer_model->getList($input);
+        pre($list);
+    }
 }

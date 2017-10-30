@@ -19,7 +19,7 @@ Class MY_Controller extends CI_Controller{
 
             case 'admin': {
 ////                echo 'Bạn đang là admin';
-//                $this->load->helper('admin');
+                $this->load->helper('admin');
                 $this->_check_login();
                 break;
             }

@@ -11,4 +11,5 @@ class Customer_model extends MY_Model{
     {
         parent::__construct();
     }
+
 }

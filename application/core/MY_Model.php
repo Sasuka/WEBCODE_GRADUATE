@@ -375,7 +375,7 @@ class MY_Model extends CI_Model
      * @param bool $escape should the values be escaped or not - defaults to true
      * @return str/array Returns id/ids of inserted rows
      */
-    public function update($data = NULL, $column_name_where = NULL, $escape = TRUE)
+    public function _update($data = NULL, $column_name_where = NULL, $escape = TRUE)
     {
         if (!isset($data) && $this->validated != FALSE) {
             $data = $this->validated;
@@ -1748,8 +1748,11 @@ class MY_Model extends CI_Model
      * Lay thong tin cua row tu dieu kien
      * $where: Mảng điều kiện
      */
-    function get_info_rule($where = array())
+    function get_info_rule($where = array(), $filed = '')
     {
+        if ($filed){
+            $this->db->select(strtoupper($filed));
+        }
         $this->db->where($where);
         $query = $this->db->get($this->table);
         if ($query->num_rows()) {
@@ -1767,7 +1770,21 @@ class MY_Model extends CI_Model
         return $this->db->get('chucvu')->result_array();
     }
 
-
+    /*
+        * Update theo id
+        * $data: data need update
+        * */
+//    public function update($id, $data = array()){
+//        if (!$id){
+//            return false;
+//        }else{
+//            $where = array();
+//            $where[$this->key] = $id;
+//            $this->update_rule($where,$data);
+//            return true;
+//
+//        }
+//    }
     /**
      * Cap nhat row tu dieu kien
      * $where: điều kiện
@@ -1842,7 +1859,7 @@ class MY_Model extends CI_Model
     }
 
     //thuc hien update bang nao du lieu nao theo gi
-    public function _update($table = '', $data = array(), $where = array())
+    public function update1($table = '', $data = array(), $where = array())
     {
         if ($table == '' || $data == '' || $where == '')
             return false;
@@ -1899,6 +1916,7 @@ class MY_Model extends CI_Model
             $this->db->where($input['where']);
         }
         //tim kiem theo like
+        //$input['like'] = array('name' =>'abc');
         if ((isset($input['like'])) && $input['like']) {
             $this->db->like($input['like'][0], $input['like'][1]);
         }
@@ -2009,7 +2027,6 @@ class MY_Model extends CI_Model
         }else
             return false;
     }
-
 
 
 }
