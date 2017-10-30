@@ -9,9 +9,16 @@
 class Admin_model extends MY_Model
 {
     public $table ='nhanvien';
+    protected  $tLevel = 'chucvu';
+
     public function __construct()
     {
         parent::__construct();
+    }
+    /*============= Lấy tất cả các chức vụ==============*/
+    public function getListLevel()
+    {
+        return $this->db->get($this->tLevel)->result_array();
     }
 
 }

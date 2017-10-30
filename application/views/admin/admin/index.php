@@ -4,6 +4,13 @@
 <div class="line"></div>
 <!--  content-->
 <div class="wrapper">
+    <?php
+    //  var_dump($this->session->flashdata('message'));
+    if ($this->session->flashdata('message') != '') {
+        $this->data['message'] = $this->session->flashdata('message');
+        $this->load->view('admin/messager', $this->data);
+    }
+    ?>
     <div class="widget">
 
         <div class="title">

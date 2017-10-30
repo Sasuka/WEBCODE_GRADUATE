@@ -1,3 +1,99 @@
+<script>
+    $(function () {
+        $('#birthday').datepicker();
+        $('#phone').keyup(function (e) {
+            e.preventDefault();
+            var phone = $(this).val();
+            if (isNaN(phone) == true) {
+                $('#phone_error').html('<span style="color: #0000FF;">Điện thoại phải là số là số</span>');
+//                alert(phone);
+                return false;
+            } else if (phone < 8) {
+                $('#phone_error').html('Số điện thoại tối thiểu là 8 số');
+                return false;
+            } else {
+                $('#phone_error').html('');
+                return true;
+            }
+
+        });
+        $('#level').change(function (e) {
+            var level = $(this).val();
+
+            if (level == '') {
+                alert('Vui lòng chọn chức vụ');
+                return false;
+            } else {
+                $('#level_error').html('');
+                $(this).val(level);
+            }
+
+        });
+        $('#form-employ').submit(function (e) {
+
+            if ($('#level').val() == '') {
+                e.preventDefault();
+                $(this).focus();
+                $('#level_error').html('<span style="color:red;">Vui lòng chọn chức vụ</span>');
+                return false;
+            } else {
+                $('#level_error').html('');
+                $('#level').attr('selected');
+
+            }
+            if ($('#fname').val() == '') {
+                e.preventDefault();
+                $(this).focus();
+                $('#fname_error').html('<span style="color:red;">Vui lòng điền vào</span>');
+                return false;
+            } else {
+                $('#fname_error').html('');
+            }
+            if ($('#lname').val() == '') {
+                e.preventDefault();
+                $(this).focus();
+                $('#lname_error').html('<span style="color:red;">Vui lòng điền vào</span>');
+                return false;
+            } else {
+                $('#lname_error').html('');
+            }
+            if ($('#password').val() == '') {
+                e.preventDefault();
+                $(this).focus();
+                $('#password_error').html('<span style="color:red;">Vui lòng điền vào</span>');
+                return false;
+            } else {
+                $('#password_error').html('');
+            }
+            if ($('#re-pass').val() == '') {
+                e.preventDefault();
+                $(this).focus();
+                $('#re-pass_error').html('<span style="color:red;">Vui lòng điền vào</span>');
+                return false;
+            } else {
+                $('#re-pass_error').html('');
+            }
+            if ($('#email').val() == '') {
+                e.preventDefault();
+                $(this).focus();
+                $('#email_error').html('<span style="color:red;">Vui lòng điền vào</span>');
+                return false;
+            } else {
+                $('#email_error').html('');
+            }
+        })
+
+    })
+
+    function check() {
+        var level = document.getElementById('level').val();
+        if (level == -1)
+            return false;
+        else
+            return true;
+    }
+</script>
+
 <!-- head -->
 <?php $this->load->view('admin/admin/head'); ?>
 <!-- line -->
@@ -20,8 +116,12 @@
                     <label class="formLeft" for="param_cat">Chức vụ:<span class="req">*</span></label>
                     <div class="formRight">
                         <select name="level" _autocheck="true" id='level' class="left" required>
-                            <option value="">&nbsp;Lựa chọn chức vụ &nbsp;</option>
-
+                            <option value="0">&nbsp;Lựa chọn chức vụ &nbsp;</option>
+                            <?php foreach ($listLevel as $itemLevel){?>
+                                <option value="<?php echo $itemLevel['MA_CHUCVU'];?>">
+                                    <?php echo $itemLevel['TEN_CHUCVU'];?>
+                                </option>
+                            <?php }?>
                         </select>
                         <span name="cat_autocheck" class="autocheck"></span>
                         <div name="level_error" class="clear error" id="level_error"></div>
@@ -34,10 +134,10 @@
                     <label class="formLeft" for="param_fname">Họ:<span class="req">*</span></label>
                     <div class="formRight">
                                 <span class="oneTwo"><input name="fname" id="fname" _autocheck="true"
-                                                            type="text" value="" required></span>
+                                                            type="text" value="<?php echo set_value('fname') ?>" required></span>
                         <span name="fname_autocheck" class="autocheck"></span>
                         <div name="fname_error" id="fname_error"
-                             class="clear error"><?php //echo form_error('fname'); ?></div>
+                             class="clear error"><?php echo form_error('fname'); ?></div>
                     </div>
                     <div class="clear"></div>
                 </div>
@@ -46,10 +146,10 @@
                     <label class="formLeft" for="param_name">Tên:<span class="req">*</span></label>
                     <div class="formRight">
                                 <span class="oneTwo"><input name="lname" id="lname" _autocheck="true"
-                                                            type="text" value="<?php //echo set_value('lname') ?>" required></span>
+                                                            type="text" value="<?php echo set_value('lname') ?>" required></span>
                         <span name="lname_autocheck" class="autocheck"></span>
                         <div name="lname_error" id="lname_error"
-                             class="clear error"><?php //echo form_error('lname'); ?></div>
+                             class="clear error"><?php echo form_error('lname'); ?></div>
                     </div>
                     <div class="clear"></div>
                 </div>
@@ -59,10 +159,10 @@
                     <div class="formRight">
                                 <span class="oneTwo"><input name="password" id="password" _autocheck="true"
                                                             type="password"
-                                                            value="<?php //echo set_value('password') ?>" required></span>
+                                                            value="<?php echo set_value('password') ?>" required></span>
                         <span name="name_autocheck" class="autocheck"></span>
                         <div name="name_error" id="password_error"
-                             class="clear error"><?php //echo form_error('password'); ?></div>
+                             class="clear error"><?php echo form_error('password'); ?></div>
                     </div>
                     <div class="clear"></div>
                 </div>
@@ -72,10 +172,10 @@
                     <div class="formRight">
                                 <span class="oneTwo"><input name="re-pass" id="re-pass" _autocheck="true"
                                                             type="password"
-                                                            value="<?php //echo set_value('re-pass') ?>" required></span>
+                                                            value="<?php echo set_value('re-pass') ?>" required></span>
                         <span name="name_autocheck" class="autocheck"></span>
                         <div name="name_error" id="re-pass_error"
-                             class="clear error"><?php //echo form_error('re-pass'); ?></div>
+                             class="clear error"><?php echo form_error('re-pass'); ?></div>
                     </div>
                     <div class="clear"></div>
                 </div>
@@ -84,11 +184,11 @@
                     <label class="formLeft" for="param_name">Số điện thoại:<span class="req">*</span></label>
                     <div class="formRight">
                                 <span class="oneTwo"><input name="phone" id="phone" _autocheck="true"
-                                                            type="text" value="<?php //echo set_value('phone') ?>"
+                                                            type="text" value="<?php echo set_value('phone') ?>"
                                                             maxlength="15" required></span>
                         <span name="name_autocheck" class="autocheck"></span>
                         <div name="name_error" class="clear error"
-                             id="phone_error"><?php //echo form_error('phone'); ?></div>
+                             id="phone_error"><?php echo form_error('phone'); ?></div>
                     </div>
                     <div class="clear"></div>
                 </div>
@@ -98,11 +198,11 @@
                     <div class="formRight">
                                 <span class="oneTwo"><input name="email" id="email" _autocheck="true"
                                                             type="email"
-                                                            value="<?php //echo set_value('email') ?>"
+                                                            value="<?php echo set_value('email') ?>"
                                                             class="check_email" required></span>
                         <span name="name_autocheck" class="autocheck" id="mail_autocheck"></span>
                         <div name="name_error" class="clear error"
-                             id="email_error"><?php //echo form_error('email'); ?></div>
+                             id="email_error"><?php echo form_error('email'); ?></div>
                     </div>
                     <div class="clear"></div>
                 </div>
@@ -111,7 +211,7 @@
                     <label class="formLeft" for="param_site_title">Địa chỉ:</label>
                     <div class="formRight">
                             <span class="oneTwo"><textarea name="address" id="address" _autocheck="true" rows="4"
-                                                           cols="" required><?php //echo set_value('address') ?> </textarea></span>
+                                                           cols="" required><?php echo set_value('address') ?> </textarea></span>
                         <span name="address_autocheck" class="autocheck"></span>
                         <div name="address_error" id="address_error" class="clear error"></div>
                     </div>
@@ -124,9 +224,9 @@
                     <div class="formRight">
                                 <span class="oneTwo"><input name="birthday" id="birthday" _autocheck="true"
                                                             type="text"
-                                                            value="<?php //echo set_value('birthday') ?>"></span>
+                                                            value="<?php echo set_value('birthday') ?>"></span>
                         <span name="name_autocheck" class="autocheck"></span>
-                        <div name="name_error" class="clear error"><?php //echo form_error('birthday'); ?></div>
+                        <div name="name_error" class="clear error"><?php echo form_error('birthday'); ?></div>
                     </div>
                     <div class="clear"></div>
                 </div>
@@ -151,7 +251,7 @@
                                                      type="radio" value="1">
                                 </span><label>Nữ</label>
                         <span name="name_autocheck" class="autocheck"></span>
-                        <div name="name_error" class="clear error"><?php //echo form_error('gender'); ?></div>
+                        <div name="name_error" class="clear error"><?php echo form_error('gender'); ?></div>
                     </div>
                     <div class="clear"></div>
                 </div>
