@@ -469,7 +469,7 @@ ul.sub li ul li { padding-left: 10px; }
 .statsRow { background: url(../images/backgrounds/titleRowBg.png); }
 .statsItems { padding: 20px 0 14px 0; overflow: visible; text-align: center; }
 
-.sItem { width: /*15%*/; margin: 0 1%; display: inline-block; border: 1px solid #d5d5d5; position: relative; background: #eee url(../images/backgrounds/stats.png) repeat-x; }
+.sItem { width: 15%; margin: 0 1%; display: inline-block; border: 1px solid #d5d5d5; position: relative; background: #eee url(../images/backgrounds/stats.png) repeat-x; }
 .sItem:first-child {  }
 .sItem > span { display: block; color: #626262;  }
 .sItem > h2 { float: left; }
@@ -705,6 +705,7 @@ input[type=submit], input[type=reset], input[type=button], button { padding: 7px
 
 .sidebarSearch { position: relative; }
 .sidebarSearch input[type=text] { background: url(../images/backgrounds/sidebarSearch.png) repeat-x; color: #A2A2A2; padding: 6px 10px 7px 10px; width: 196px; height: 16px; border: none; border-top: 1px solid #333D46; border-radius: 0; border-bottom: 1px solid #39434c; }
+.sidebarSearch input[type=email] { background: url(../images/backgrounds/sidebarSearch.png) repeat-x; color: #A2A2A2; padding: 6px 10px 7px 10px; width: 196px; height: 16px; border: none; border-top: 1px solid #333D46; border-radius: 0; border-bottom: 1px solid #39434c; }
 .sidebarSearch input[type=submit] { width: 23px; height: 23px; background: url(../images/sidebarSearchBtn.png) no-repeat; position: absolute; top: 4px; right: -7px; border: none; }
 .sidebarSearch input[type=submit]:hover { background-position: 0 -24px; }
 .sidebarSearch input[type=submit]:active { background-position: 0 -48px; }
@@ -790,6 +791,7 @@ ul.tab-attr li a.selected
 
 .searchWidget { position: relative; margin-top: 32px; }
 .searchWidget input[type=text] { border: 1px solid #d5d5d5; padding: 10px!important; width: 93%!important; height: 14px; }
+.searchWidget input[type=email] { border: 1px solid #d5d5d5; padding: 10px!important; width: 93%!important; height: 14px; }
 .searchWidget input[type=submit] { background: url(../images/searchBtn.png) no-repeat 0 0; position: absolute; top: 0; right: 0; border: none; width: 36px; height: 36px; max-height: 100%; }
 
 
@@ -1060,9 +1062,9 @@ table thead td.headerSortDown span { background: url(../images/icons/sortDown.pn
 .formRow .checker, .formRow .radio { margin-right: 12px; margin-top: 4px; }
 .formRow .formRight { display: block; float: right; width: 80%; margin-right: 18px; }
 
-.form input[type=text], .form input[type=password], .form textarea { font-size: 11px; padding: 7px 6px; background: white; border: 1px solid #DDD; width: 100%; font-family: Arial, Helvetica, sans-serif; box-shadow: 0 0 0 2px #f4f4f4; -webkit-box-shadow: 0 0 0 2px #f4f4f4; -moz-box-shadow: 0 0 0 2px #f4f4f4; color: #656565; } 
-.form input[type=text]:hover, .form input[type=password]:hover, .form textarea:hover { border-color: #d5d9dc; background: #fdfdfd; }
-.form input[type=text]:focus, .form input[type=password]:focus, .form textarea:focus { border-color: #d5d9dc; background: #fff; -webkit-box-shadow: 0 0 0 2px #f4f4f4; box-shadow: 0 0 0 2px #f4f4f4; -moz-box-shadow: 0 0 0 2px #f4f4f4; }
+.form input[type=text],.form input[type=email], .form input[type=password], .form textarea { font-size: 11px; padding: 7px 6px; background: white; border: 1px solid #DDD; width: 100%; font-family: Arial, Helvetica, sans-serif; box-shadow: 0 0 0 2px #f4f4f4; -webkit-box-shadow: 0 0 0 2px #f4f4f4; -moz-box-shadow: 0 0 0 2px #f4f4f4; color: #656565; }
+.form input[type=text]:hover,.form input[type=email]:hover, .form input[type=password]:hover, .form textarea:hover { border-color: #d5d9dc; background: #fdfdfd; }
+.form input[type=text]:focus,.form input[type=email]:focus, .form input[type=password]:focus, .form textarea:focus { border-color: #d5d9dc; background: #fff; -webkit-box-shadow: 0 0 0 2px #f4f4f4; box-shadow: 0 0 0 2px #f4f4f4; -moz-box-shadow: 0 0 0 2px #f4f4f4; }
 input[readonly], input[disabled] { background: #FCFCFC; border: 1px solid #DADADA; color: #D1D1D1; }
 
 .multiple { width: 100%; padding: 5px; }

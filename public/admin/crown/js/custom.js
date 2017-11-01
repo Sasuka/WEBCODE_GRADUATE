@@ -322,82 +322,82 @@ $(function() {
 	});
 	
 	
-	//===== Datepickers =====//
-	
-	$( ".datepicker" ).datepicker({ 
-		defaultDate: +7,
-		autoSize: true,
-		dateFormat: 'dd-mm-yy',
-	});	
-	
-	$( ".datepickerInline" ).datepicker({ 
-		defaultDate: +7,
-		autoSize: true,
-		dateFormat: 'dd-mm-yy',
-		numberOfMonths: 1
-	});	
+	// //===== Datepickers =====//
+	//
+	// $( ".datepicker" ).datepicker({
+	// 	defaultDate: +7,
+	// 	autoSize: true,
+	// 	dateFormat: 'dd-mm-yy',
+	// });
+	//
+	// $( ".datepickerInline" ).datepicker({
+	// 	defaultDate: +7,
+	// 	autoSize: true,
+	// 	dateFormat: 'dd-mm-yy',
+	// 	numberOfMonths: 1
+	// });
 
 
 //===== Progress bars =====//
 	
 	// default mode
-	$('#progress1').anim_progressbar();
-	
-	// from second #5 till 15
-	var iNow = new Date().setTime(new Date().getTime() + 5 * 1000); // now plus 5 secs
-	var iEnd = new Date().setTime(new Date().getTime() + 15 * 1000); // now plus 15 secs
-	$('#progress2').anim_progressbar({start: iNow, finish: iEnd, interval: 1});
-	
-	// jQuery UI progress bar
-	$( "#progress" ).progressbar({
-			value: 80
-	});
-	
+	// $('#progress1').anim_progressbar();
+	//
+	// // from second #5 till 15
+	// var iNow = new Date().setTime(new Date().getTime() + 5 * 1000); // now plus 5 secs
+	// var iEnd = new Date().setTime(new Date().getTime() + 15 * 1000); // now plus 15 secs
+	// $('#progress2').anim_progressbar({start: iNow, finish: iEnd, interval: 1});
+	//
+	// // jQuery UI progress bar
+	// $( "#progress" ).progressbar({
+	// 		value: 80
+	// });
+	//
 	
 	
 	//===== Animated progress bars =====//
 	
-	var percent = $('.progressG').attr('title');
-	$('.progressG').animate({width: percent},1000);
-	
-	var percent = $('.progressO').attr('title');
-	$('.progressO').animate({width: percent},1000);
-	
-	var percent = $('.progressB').attr('title');
-	$('.progressB').animate({width: percent},1000);
-	
-	var percent = $('.progressR').attr('title');
-	$('.progressR').animate({width: percent},1000);
-	
+	// var percent = $('.progressG').attr('title');
+	// $('.progressG').animate({width: percent},1000);
+	//
+	// var percent = $('.progressO').attr('title');
+	// $('.progressO').animate({width: percent},1000);
+	//
+	// var percent = $('.progressB').attr('title');
+	// $('.progressB').animate({width: percent},1000);
+	//
+	// var percent = $('.progressR').attr('title');
+	// $('.progressR').animate({width: percent},1000);
+	//
 	
 	
 	
 	var percent = $('#bar1').attr('title');
-	$('#bar1').animate({width: percent},1000);
-	
-	var percent = $('#bar2').attr('title');
-	$('#bar2').animate({width: percent},1000);
-	
-	var percent = $('#bar3').attr('title');
-	$('#bar3').animate({width: percent},1000);
-	
-	var percent = $('#bar4').attr('title');
-	$('#bar4').animate({width: percent},1000);
-	
-	var percent = $('#bar5').attr('title');
-	$('#bar5').animate({width: percent},1000);
-
-	var percent = $('#bar6').attr('title');
-	$('#bar6').animate({width: percent},1000);
-
-	var percent = $('#bar7').attr('title');
-	$('#bar7').animate({width: percent},1000);
-
-	var percent = $('#bar8').attr('title');
-	$('#bar8').animate({width: percent},1000);
-
-	var percent = $('#bar9').attr('title');
-	$('#bar9').animate({width: percent},1000);
+	// $('#bar1').animate({width: percent},1000);
+	//
+	// var percent = $('#bar2').attr('title');
+	// $('#bar2').animate({width: percent},1000);
+	//
+	// var percent = $('#bar3').attr('title');
+	// $('#bar3').animate({width: percent},1000);
+	//
+	// var percent = $('#bar4').attr('title');
+	// $('#bar4').animate({width: percent},1000);
+	//
+	// var percent = $('#bar5').attr('title');
+	// $('#bar5').animate({width: percent},1000);
+    //
+	// var percent = $('#bar6').attr('title');
+	// $('#bar6').animate({width: percent},1000);
+    //
+	// var percent = $('#bar7').attr('title');
+	// $('#bar7').animate({width: percent},1000);
+    //
+	// var percent = $('#bar8').attr('title');
+	// $('#bar8').animate({width: percent},1000);
+    //
+	// var percent = $('#bar9').attr('title');
+	// $('#bar9').animate({width: percent},1000);
 
 
 /* UI stuff
@@ -515,21 +515,21 @@ $(function() {
 	
 	//===== UI dialog =====//
 	
-	$( "#dialog-message" ).dialog({
-		autoOpen: false,
-		modal: true,
-		buttons: {
-			Ok: function() {
-				$( this ).dialog( "close" );
-			}
-		}
-	});
-	
-	$( "#opener" ).click(function() {
-		$( "#dialog-message" ).dialog( "open" );
-		return false;
-	});	
-		
+	// $( "#dialog-message" ).dialog({
+	// 	autoOpen: false,
+	// 	modal: true,
+	// 	buttons: {
+	// 		Ok: function() {
+	// 			$( this ).dialog( "close" );
+	// 		}
+	// 	}
+	// });
+	//
+	// $( "#opener" ).click(function() {
+	// 	$( "#dialog-message" ).dialog( "open" );
+	// 	return false;
+	// });
+	//
 	
 	
 	//===== Breadcrumbs =====//
@@ -540,61 +540,61 @@ $(function() {
 		
 	//===== jQuery UI sliders =====//	
 	
-	$( ".uiSlider" ).slider(); /* Usual slider */
-	
-	
-	$( ".uiSliderInc" ).slider({ /* Increments slider */
-		value:100,
-		min: 0,
-		max: 500,
-		step: 50,
-		slide: function( event, ui ) {
-			$( "#amount" ).val( "$" + ui.value );
-		}
-	});
-	$( "#amount" ).val( "$" + $( ".uiSliderInc" ).slider( "value" ) );
-		
-		
-	$( ".uiRangeSlider" ).slider({ /* Range slider */
-		range: true,
-		min: 0,
-		max: 500,
-		values: [ 75, 300 ],
-		slide: function( event, ui ) {
-			$( "#rangeAmount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
-		}
-	});
-	$( "#rangeAmount" ).val( "$" + $( ".uiRangeSlider" ).slider( "values", 0 ) +" - $" + $( ".uiRangeSlider" ).slider( "values", 1 ));
-			
-			
-	$( ".uiMinRange" ).slider({ /* Slider with minimum */
-		range: "min",
-		value: 37,
-		min: 1,
-		max: 700,
-		slide: function( event, ui ) {
-			$( "#minRangeAmount" ).val( "$" + ui.value );
-		}
-	});
-	$( "#minRangeAmount" ).val( "$" + $( ".uiMinRange" ).slider( "value" ) );
-	
-	
-	$( ".uiMaxRange" ).slider({ /* Slider with maximum */
-		range: "max",
-		min: 1,
-		max: 100,
-		value: 20,
-		slide: function( event, ui ) {
-			$( "#maxRangeAmount" ).val( ui.value );
-		}
-	});
-	$( "#maxRangeAmount" ).val( $( ".uiMaxRange" ).slider( "value" ) );	
-
-
-
-	//===== Form elements styling =====//
-	
-	$("input:checkbox, input:radio, input:file").uniform();
+	// $( ".uiSlider" ).slider(); /* Usual slider */
+	//
+	//
+	// $( ".uiSliderInc" ).slider({ /* Increments slider */
+	// 	value:100,
+	// 	min: 0,
+	// 	max: 500,
+	// 	step: 50,
+	// 	slide: function( event, ui ) {
+	// 		$( "#amount" ).val( "$" + ui.value );
+	// 	}
+	// });
+	// $( "#amount" ).val( "$" + $( ".uiSliderInc" ).slider( "value" ) );
+	//
+	//
+	// $( ".uiRangeSlider" ).slider({ /* Range slider */
+	// 	range: true,
+	// 	min: 0,
+	// 	max: 500,
+	// 	values: [ 75, 300 ],
+	// 	slide: function( event, ui ) {
+	// 		$( "#rangeAmount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+	// 	}
+	// });
+	// $( "#rangeAmount" ).val( "$" + $( ".uiRangeSlider" ).slider( "values", 0 ) +" - $" + $( ".uiRangeSlider" ).slider( "values", 1 ));
+	//
+	//
+	// $( ".uiMinRange" ).slider({ /* Slider with minimum */
+	// 	range: "min",
+	// 	value: 37,
+	// 	min: 1,
+	// 	max: 700,
+	// 	slide: function( event, ui ) {
+	// 		$( "#minRangeAmount" ).val( "$" + ui.value );
+	// 	}
+	// });
+	// $( "#minRangeAmount" ).val( "$" + $( ".uiMinRange" ).slider( "value" ) );
+	//
+	//
+	// $( ".uiMaxRange" ).slider({ /* Slider with maximum */
+	// 	range: "max",
+	// 	min: 1,
+	// 	max: 100,
+	// 	value: 20,
+	// 	slide: function( event, ui ) {
+	// 		$( "#maxRangeAmount" ).val( ui.value );
+	// 	}
+	// });
+	// $( "#maxRangeAmount" ).val( $( ".uiMaxRange" ).slider( "value" ) );
+    //
+    //
+    //
+	// //===== Form elements styling =====//
+	//
+	// $("input:checkbox, input:radio, input:file").uniform();
 
 	
 });

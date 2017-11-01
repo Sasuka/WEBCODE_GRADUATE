@@ -12,13 +12,15 @@ Class Home extends CI_Controller
     function __construct()
     {
         parent::__construct();
+        $this->load->model('admin_model');
 
     }
 
-    function index()
+    //lay ma chuc vu
+    public function index()
     {
-        $this->data['temp'] = 'site/home/index';
-        $this->load->view('site/layout', $this->data);
+
+
     }
 
     function view()

@@ -375,7 +375,7 @@ class MY_Model extends CI_Model
      * @param bool $escape should the values be escaped or not - defaults to true
      * @return str/array Returns id/ids of inserted rows
      */
-    public function _update($data = NULL, $column_name_where = NULL, $escape = TRUE)
+    public function _update1($data = NULL, $column_name_where = NULL, $escape = TRUE)
     {
         if (!isset($data) && $this->validated != FALSE) {
             $data = $this->validated;
@@ -1750,7 +1750,7 @@ class MY_Model extends CI_Model
      */
     function get_info_rule($where = array(), $filed = '')
     {
-        if ($filed){
+        if ($filed) {
             $this->db->select(strtoupper($filed));
         }
         $this->db->where($where);
@@ -1870,6 +1870,18 @@ class MY_Model extends CI_Model
             return false;
     }
 
+    public function _update($data = array(), $where = array())
+    {
+        if ($data == '' || $where == '')
+            return false;
+        $this->db->where($where);
+        if ($this->db->update($this->table, $data)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     //thuc hien delete bang nao,theo dieu kien nao
     public function _delete($table = '', $where = array())
     {
@@ -1987,16 +1999,27 @@ class MY_Model extends CI_Model
         $this->db->select('*');
         $this->db->from($this->table);
         $this->db->join($tabl1, "$tabl1.$condition=$this->table.$condition");
-        if ($where !=''){
+        if ($where != '') {
             $this->db->where($where);
         }
         return $this->db->get()->result_array();
 
     }
-    public function getListJoinLRB($table1,$condition,$lrb ='left'){
-        $this->db->select('*');
+    /* table1 : table cần join, $condition: là điều kiện để join ~ on, $lrb: hình thức join, $select : thuộc tính cần select*/
+    public function getListJoinLRB($table1, $condition,$where = array(), $lrb = 'left',$select = '')
+    {
+        if ($select !=''){
+            $this->db->select($select);
+        }else{
+            $this->db->select('*');
+        }
+
         $this->db->from($this->table);
-        $this->db->join($table1,"$table1.$condition=$this->table.$condition",$lrb);
+
+        $this->db->join($table1, "$table1.$condition = $this->table.$condition", $lrb);
+        if ($where != ''){
+            $this->db->where($where);
+        }
         return $this->db->get()->result_array();
 
     }
@@ -2017,14 +2040,16 @@ class MY_Model extends CI_Model
     var $order = '';
     // Các field select mặc định khi get_list (VD: select='id,name')
     var $select = '';
+
     /*
      * Thêm row mới
      * $data : là dữ liệu cần thêm.
      * */
-    public function create($data = array()){
-        if ($this->db->insert($this->table, $data)){
+    public function create($data = array())
+    {
+        if ($this->db->insert($this->table, $data)) {
             return true;
-        }else
+        } else
             return false;
     }
 

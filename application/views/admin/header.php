@@ -7,13 +7,13 @@
 
         <div class="userNav">
             <ul>
-                <li><a href="" target="_blank">
+                <li><a href="<?php echo admin_url()?>">
                         <img style="margin-top:7px;" src="<?php echo public_url('admin/')?>images/icons/light/home.png">
                         <span>Trang chủ</span>
                     </a></li>
 
                 <!-- Logout -->
-                <li><a href="admin/home/logout.html">
+                <li><a href="<?php echo admin_url('admin/logout')?>">
                         <img src="<?php echo public_url('admin/')?>images/icons/topnav/logout.png" alt="">
                         <span>Đăng xuất</span>
                     </a></li>

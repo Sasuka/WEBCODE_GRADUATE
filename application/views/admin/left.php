@@ -1,9 +1,14 @@
+<?php
+    $account = $this->session->userdata('account');
+
+?>
 <div id="leftSide" style="padding-top:30px;">
     <!-- Account panel -->
     <div class="sideProfile">
-        <a href="#" title="" class="profileFace"><img src="<?php echo public_url('admin/')?>images/user.png" width="40"></a>
-        <span>Xin chào: <strong>admin!</strong></span>
-        <span>Hoàng văn Tuyền</span>
+        <a href="#" title="" class="profileFace"><img src="<?php echo public_url('admin/') ?>images/user.png"
+                                                      width="40"></a>
+        <span>Xin chào: <strong><?php echo $account['TEN']; ?></strong></span>
+        <span>Chức vụ :<?php echo $account['TEN_CHUCVU']; ?></span>
         <div class="clear"></div>
     </div>
     <div class="sidebarSep"></div>
@@ -38,12 +43,12 @@
             </a>
             <ul class="sub" style="display: none;">
                 <li>
-                    <a href="admin/product.html">
-                        Sản phẩm </a>
+                    <a href="<?php echo admin_url('branh')?>">
+                        Thương hiệu </a>
                 </li>
                 <li>
                     <a href="admin/cat.html">
-                        Danh mục </a>
+                        Loại sản phẩm </a>
                 </li>
                 <li>
                     <a href="admin/comment.html">
@@ -57,18 +62,28 @@
                 <strong>3</strong>
             </a>
             <ul class="sub" style="display: none;">
+                <?php if ($account['MA_CHUCVU'] == '1') { ?>
                 <li>
                     <a href="admin/admin.html">
-                        Ban quản trị </a>
+                        Các nhóm quyền </a>
                 </li>
+
+                    <li>
+                        <a href="<?php echo admin_url('admin/employee/1'); ?>">
+                            Danh sách quản trị </a>
+                    </li>
+                    <li>
+                        <a href="<?php echo admin_url('admin/employee/2'); ?>">
+                            Danh sách thành viên </a>
+                    </li>
+                <?php
+                }
+                ?>
                 <li>
-                    <a href="admin/admin_group.html">
-                        Nhóm quản trị </a>
+                    <a href="<?php echo admin_url('customer'); ?>">
+                        Danh sách khách hàng </a>
                 </li>
-                <li>
-                    <a href="admin/user.html">
-                        Thành viên </a>
-                </li>
+
             </ul>
         </li>
         <li class="support">

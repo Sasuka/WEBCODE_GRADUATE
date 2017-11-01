@@ -20,7 +20,8 @@
         $('#level').change(function (e) {
             var level = $(this).val();
 
-            if (level == '') {
+            if (level == '0') {
+                e.preventDefault();
                 alert('Vui lòng chọn chức vụ');
                 return false;
             } else {
@@ -87,7 +88,7 @@
 
     function check() {
         var level = document.getElementById('level').val();
-        if (level == -1)
+        if (level == '0')
             return false;
         else
             return true;
@@ -101,8 +102,10 @@
 <!--  content-->
 <div class="wrapper">
     <!-- Form -->
+
     <div class="widget">
         <div class="title">
+            <?php if(isset($errs)) echo 'www'.$errs;?>
             <img src="<?php echo public_url('admin') ?>/images/icons/dark/add.png" class="titleIcon">
             <h6>Thêm mới quản trị viên</h6>
         </div>
@@ -117,11 +120,11 @@
                     <div class="formRight">
                         <select name="level" _autocheck="true" id='level' class="left" required>
                             <option value="0">&nbsp;Lựa chọn chức vụ &nbsp;</option>
-                            <?php foreach ($listLevel as $itemLevel){?>
-                                <option value="<?php echo $itemLevel['MA_CHUCVU'];?>">
-                                    <?php echo $itemLevel['TEN_CHUCVU'];?>
+                            <?php foreach ($listLevel as $itemLevel) { ?>
+                                <option value="<?php echo $itemLevel['MA_CHUCVU']; ?>">
+                                    <?php echo $itemLevel['TEN_CHUCVU']; ?>
                                 </option>
-                            <?php }?>
+                            <?php } ?>
                         </select>
                         <span name="cat_autocheck" class="autocheck"></span>
                         <div name="level_error" class="clear error" id="level_error"></div>
@@ -134,7 +137,8 @@
                     <label class="formLeft" for="param_fname">Họ:<span class="req">*</span></label>
                     <div class="formRight">
                                 <span class="oneTwo"><input name="fname" id="fname" _autocheck="true"
-                                                            type="text" value="<?php echo set_value('fname') ?>" required></span>
+                                                            type="text" value="<?php echo set_value('fname') ?>"
+                                                            required></span>
                         <span name="fname_autocheck" class="autocheck"></span>
                         <div name="fname_error" id="fname_error"
                              class="clear error"><?php echo form_error('fname'); ?></div>
@@ -146,7 +150,8 @@
                     <label class="formLeft" for="param_name">Tên:<span class="req">*</span></label>
                     <div class="formRight">
                                 <span class="oneTwo"><input name="lname" id="lname" _autocheck="true"
-                                                            type="text" value="<?php echo set_value('lname') ?>" required></span>
+                                                            type="text" value="<?php echo set_value('lname') ?>"
+                                                            required></span>
                         <span name="lname_autocheck" class="autocheck"></span>
                         <div name="lname_error" id="lname_error"
                              class="clear error"><?php echo form_error('lname'); ?></div>
@@ -211,7 +216,8 @@
                     <label class="formLeft" for="param_site_title">Địa chỉ:</label>
                     <div class="formRight">
                             <span class="oneTwo"><textarea name="address" id="address" _autocheck="true" rows="4"
-                                                           cols="" required><?php echo set_value('address') ?> </textarea></span>
+                                                           cols=""
+                                                           required><?php echo set_value('address') ?> </textarea></span>
                         <span name="address_autocheck" class="autocheck"></span>
                         <div name="address_error" id="address_error" class="clear error"></div>
                     </div>
@@ -242,16 +248,11 @@
                 </div>
                 <!-- gioi tinh -->
                 <div class="formRow">
-                    <label class="formLeft" for="param_name">Giới tính:</label>
+                    <label class="formLeft" for="gender">Giới tính:</label>
                     <div class="formRight">
-                                <span class="one-two"><input name="gender" id="param_name" _autocheck="true"
-                                                             type="radio" value="0" checked>
-                                </span><label>Nam</label>
-                        <span class="one-two"><input name="gender" id="param_name" _autocheck="true"
-                                                     type="radio" value="1">
-                                </span><label>Nữ</label>
-                        <span name="name_autocheck" class="autocheck"></span>
-                        <div name="name_error" class="clear error"><?php echo form_error('gender'); ?></div>
+                        <label class="radio-inline"><input type="radio" name="gender" value="0" checked>
+                            Nam</label>
+                        <label class="radio-inline"><input type="radio" name="gender" value="1"> Nữ</label>
                     </div>
                     <div class="clear"></div>
                 </div>
@@ -267,85 +268,85 @@
 </div>
 <script>
     $(document).ready(function () {
-        $("#datepicker").datepicker({
-//            showOtherMonths: true,
-//            selectOtherMonths: true
-        });
+//        $("#datepicker").datepicker({
+////            showOtherMonths: true,
+////            selectOtherMonths: true
+//        });
 
-        $('#form_register').bootstrapValidator({
-            // To use feedback icons, ensure that you use Bootstrap v3.1.0 or later
-            feedbackIcons: {
-                valid: 'glyphicon glyphicon-ok',
-                invalid: 'glyphicon glyphicon-remove',
-                validating: 'glyphicon glyphicon-refresh'
-            },
-            fields: {
-                username: {
-                    message: 'Username không được để trống',
-                    validators: {
-                        notEmpty: {
-                            message: 'The username is required and cannot be empty'
-                        },
-                        stringLength: {
-                            min: 6,
-                            max: 30,
-                            message: 'The username must be more than 6 and less than 30 characters long'
-                        },
-                        regexp: {
-                            regexp: /^[a-zA-Z0-9]+$/,
-                            message: 'The username can only consist of alphabetical and number'
-                        },
-                        different: {
-                            field: 'password',
-                            message: 'The username and password cannot be the same as each other'
-                        }
-                    }
-                },
-                email: {
-                    validators: {
-                        notEmpty: {
-                            message: 'The email address is required and cannot be empty'
-                        },
-                        emailAddress: {
-                            message: 'The email address is not a valid'
-                        }
-                    }
-                },
-                password: {
-                    validators: {
-                        notEmpty: {
-                            message: 'The password is required and cannot be empty'
-                        },
-                        different: {
-                            field: 'username',
-                            message: 'The password cannot be the same as username'
-                        },
-                        stringLength: {
-                            min: 8,
-                            message: 'The password must have at least 8 characters'
-                        }
-                    }
-                },
-                birthday: {
-                    validators: {
-                        notEmpty: {
-                            message: 'The date of birth is required'
-                        },
-                        date: {
-                            // format: 'DD/MM/YYYY',
-                            message: 'The date of birth is not valid'
-                        }
-                    }
-                },
-                gender: {
-                    validators: {
-                        notEmpty: {
-                            message: 'The gender is required'
-                        }
-                    }
-                }
-            }
-        });
+//        $('#form-employ').bootstrapValidator({
+//            // To use feedback icons, ensure that you use Bootstrap v3.1.0 or later
+//            feedbackIcons: {
+//                valid: 'glyphicon glyphicon-ok',
+//                invalid: 'glyphicon glyphicon-remove',
+//                validating: 'glyphicon glyphicon-refresh'
+//            },
+//            fields: {
+//                fname: {
+//                    message: 'Họ không được để trống',
+//                    validators: {
+//                        notEmpty: {
+//                            message: 'The username is required and cannot be empty'
+//                        },
+//                        stringLength: {
+//                            min: 2,
+//                            max: 15,
+//                            message: 'The username must be more than 2 and less than 15 characters long'
+//                        },
+////                        regexp: {
+////                            regexp: /^[a-zA-Z0-9]+$/,
+////                            message: 'The username can only consist of alphabetical and number'
+////                        },
+//                        different: {
+//                            field: 'password',
+//                            message: 'The username and password cannot be the same as each other'
+//                        }
+//                    }
+//                },
+//                email: {
+//                    validators: {
+//                        notEmpty: {
+//                            message: 'The email address is required and cannot be empty'
+//                        },
+//                        emailAddress: {
+//                            message: 'The email address is not a valid'
+//                        }
+//                    }
+//                },
+//                password: {
+//                    validators: {
+//                        notEmpty: {
+//                            message: 'The password is required and cannot be empty'
+//                        },
+//                        different: {
+//                            field: 'username',
+//                            message: 'The password cannot be the same as username'
+//                        },
+//                        stringLength: {
+//                            min: 8,
+//                            message: 'The password must have at least 8 characters'
+//                        }
+//                    }
+//                },
+//                birthday: {
+//                    validators: {
+//                        notEmpty: {
+//                            message: 'The date of birth is required'
+//                        },
+//                        date: {
+//                            // format: 'DD/MM/YYYY',
+//                            message: 'The date of birth is not valid'
+//                        }
+//                    }
+//                },
+//                gender: {
+//                    validators: {
+//                        notEmpty: {
+//                            message: 'The gender is required'
+//                        }
+//                    }
+//                }
+//            }
+//        });
     });
 
 
