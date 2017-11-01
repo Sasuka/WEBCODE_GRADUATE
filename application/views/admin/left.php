@@ -43,6 +43,10 @@
             </a>
             <ul class="sub" style="display: none;">
                 <li>
+                    <a href="<?php echo admin_url('Providers')?>">
+                        Nhà cung cấp</a>
+                </li>
+                <li>
                     <a href="<?php echo admin_url('branh')?>">
                         Thương hiệu </a>
                 </li>
