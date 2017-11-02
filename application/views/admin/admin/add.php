@@ -107,7 +107,12 @@
         <div class="title">
             <?php if(isset($errs)) echo 'www'.$errs;?>
             <img src="<?php echo public_url('admin') ?>/images/icons/dark/add.png" class="titleIcon">
+            <?php if($type == '1'){?>
             <h6>Thêm mới quản trị viên</h6>
+            <?php }elseif ($type == '2'){?>
+            <h6>Thêm mới nhân viên</h6>
+            <?php } ?>
+
         </div>
 
         <form class="form" id="form-employ" action="add" method="post" enctype="multipart/form-data"
@@ -115,14 +120,16 @@
             <fieldset>
 
                 <!-- chức vụ -->
+
+                <?php if ($type == '2'){?>
                 <div class="formRow">
                     <label class="formLeft" for="param_cat">Chức vụ:<span class="req">*</span></label>
                     <div class="formRight">
                         <select name="level" _autocheck="true" id='level' class="left" required>
                             <option value="0">&nbsp;Lựa chọn chức vụ &nbsp;</option>
-                            <?php foreach ($listLevel as $itemLevel) { ?>
-                                <option value="<?php echo $itemLevel['MA_CHUCVU']; ?>">
-                                    <?php echo $itemLevel['TEN_CHUCVU']; ?>
+                            <?php for ($i = 1; $i< count($listLevel) ;$i++) { ?>
+                                <option value="<?php echo $listLevel[$i]['MA_CHUCVU']; ?>">
+                                    <?php echo $listLevel[$i]['TEN_CHUCVU']; ?>
                                 </option>
                             <?php } ?>
                         </select>
@@ -131,7 +138,12 @@
                     </div>
                     <div class="clear"></div>
                 </div>
+                <?php }else if ($type == '1'){?>
+                    <input name="level" _autocheck="true" id='level' value="1" type="hidden"/>
+                <?php }elseif($type !='1' && $type != '2'){
+                    $this->session->set_flashdata('message', 'Không tìm thấy!');
 
+                 }?>
                 <!-- ho -->
                 <div class="formRow">
                     <label class="formLeft" for="param_fname">Họ:<span class="req">*</span></label>

@@ -15,12 +15,17 @@ class Admin extends MY_Controller
         $this->data['listLevel'] = $this->admin_model->getListLevel();
     }
 
-    public function index()
+    public function index($type = '2')
     {
         $input = array();
-        $where = array('nhanvien.MA_CHUCVU !=' => 1);
+        if($type == '2')
+            $where = array('nhanvien.MA_CHUCVU !=' => 1);
+        elseif ($type == '1'){
+            $where = array('nhanvien.MA_CHUCVU' => 1);
+        }
+        $this->data['type'] = $type;
         $this->data['list'] =  $this->admin_model->listEmployee($where);
-        $this->data['temp'] = 'admin/admin/index';
+        $this->data['temp'] = 'admin/admin/index/'.$type;
         $this->load->view('admin/main', $this->data);
     }
 
@@ -88,7 +93,7 @@ class Admin extends MY_Controller
     //kiem tra so dien thoai co ai dang ky chua
 
     //==================== THÊM QUAN TRỊ VIÊN =======================//
-    public function add()
+    public function add($type = '1')
     {
 
         $this->load->library('form_validation');
@@ -144,12 +149,12 @@ class Admin extends MY_Controller
                     redirect(admin_url('admin'));
                 } else {
 
-                    redirect(admin_url('admin/employee'));
+                    redirect(admin_url('admin/employee/2'));
 
                 }
             }
         }
-
+        $this->data['type'] = $type;
         $this->data['temp'] = 'admin/admin/add';
         $this->load->view('admin/main', $this->data);
     }
@@ -285,6 +290,7 @@ class Admin extends MY_Controller
         $this->data['list'] = $this->admin_model->listEmployee($where);
        // pre($this->data['listEmployee']);
         //lay noi dung cua messager
+        $this->data['type'] = $type;
         $this->data['message'] = $this->session->flashdata('message');
 
         $this->data['temp'] = 'admin/admin/index';
