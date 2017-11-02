@@ -1,13 +1,14 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: tient
- * Date: 01/11/2017
- * Time: 12:57
+ * Date: 02/11/2017
+ * Time: 20:48
  */
-class Providers_model extends MY_Model
+class Categories_model extends MY_Model
 {
-    public $table = 'nha_cungcap';
+    public $table = 'loai_sanpham';
     public function __construct()
     {
         parent::__construct();

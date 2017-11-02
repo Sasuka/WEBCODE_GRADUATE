@@ -1,5 +1,5 @@
 <!-- head -->
-<?php $this->load->view('admin/providers/head'); ?>
+<?php $this->load->view('admin/categories/head'); ?>
 <!-- line -->
 <div class="line"></div>
 <!--  content-->
@@ -18,7 +18,7 @@
                                                                                               name="titleCheck"
                                                                                               style="opacity: 0;"
                                                                                               type="checkbox"></span></div></span>
-            <h6>Danh sách nhà cung cấp</h6>
+            <h6>Danh sách loại sản phẩm</h6>
             <div class="num f12">Tổng số: <b><?php echo count($list); ?></b></div>
         </div>
 
@@ -29,9 +29,9 @@
                     <td style="width:10px;"><img src="<?php echo public_url('admin/') ?>images/icons/tableArrows.png">
                     </td>
                     <td style="width:80px;">STT</td>
+                    <td>Tên loại sản phẩm</td>
                     <td>Tên nhà cung cấp</td>
-                    <td>SDT</td>
-                    <td>Địa chỉ</td>
+                    <td>Tên thương hiệu</td>
                     <td style="width:100px;">Hành động</td>
                 </tr>
                 </thead>
@@ -62,24 +62,24 @@
                     <tr>
                         <td>
                             <div class="checker" id="uniform-undefined"><span>
-                        <input name="id[]" value="<?php echo $row['MA_NHA_CUNGCAP']; ?>" style="opacity: 0;"
+                        <input name="id[]" value="<?php echo $row['MA_LOAI_SANPHAM']; ?>" style="opacity: 0;"
                                type="checkbox"></span></div>
                         </td>
                         <td><span class="tipS"
-                                  original-title="<?php echo $row['MA_NHA_CUNGCAP']; ?>">
+                                  original-title="<?php echo $row['MA_LOAI_SANPHAM']; ?>">
                                 <?php echo $i; ?></span>
                         </td>
+                        <td><span class="tipS" original-title=""><?php echo $row['TEN_LOAI_SANPHAM']; ?></span></td>
                         <td><span class="tipS" original-title=""><?php echo $row['TEN_NHA_CUNGCAP']; ?></span></td>
-                        <td><span class="tipS" original-title="<?php echo $row['EMAIL']; ?>"><?php echo $row['SDT']; ?></span></td>
-                        <td><span class="tipS" original-title="<?php echo $row['WEBSITE']; ?>"><?php echo $row['DIACHI_NHA_CUNGCAP']; ?></span></td>
+                        <td><span class="tipS" original-title=""><?php echo $row['TEN_THUONGHIEU']; ?></span></td>
                         <td class="option">
-                            <a href="<?php echo admin_url('providers/edit/' . $row['MA_NHA_CUNGCAP']); ?>" class="tipS "
+                            <a href="<?php echo admin_url('categories/edit/' . $row['MA_LOAI_SANPHAM']); ?>" class="tipS "
                                original-title="Chỉnh sửa">
                                 <img src="<?php echo public_url('admin/') ?>images/icons/color/edit.png">
                             </a>
 
                             <?php if ($row['TRANGTHAI'] == '1') { ?>
-                                <a href="<?php echo admin_url('providers/delete/' . $row['MA_NHA_CUNGCAP']); ?>"
+                                <a href="<?php echo admin_url('categories/delete/' . $row['MA_LOAI_SANPHAM']); ?>"
                                    class="tipS verify_action"
                                    original-title="Xóa">
                                     <img src="<?php echo public_url('admin/') ?>images/icons/color/delete.png">

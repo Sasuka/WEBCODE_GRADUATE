@@ -51,7 +51,7 @@
                         Thương hiệu </a>
                 </li>
                 <li>
-                    <a href="admin/cat.html">
+                    <a href="<?php echo admin_url('categories')?>">
                         Loại sản phẩm </a>
                 </li>
                 <li>
