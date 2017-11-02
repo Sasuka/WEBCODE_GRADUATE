@@ -108,7 +108,7 @@ class Branh extends MY_Controller
 
         $info = $this->branh_model->get_info_rule($where);
         if (!$info){
-            $this->session->set_flashdata('message', 'Không tìm thấy thương hiệu này!');
+            $this->session->set_flashdata('message', 'Không tìm thấy này!');
             redirect(admin_url('branh'));
         }
         $this->data['info'] = $info;

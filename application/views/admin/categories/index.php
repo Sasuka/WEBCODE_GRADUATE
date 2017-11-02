@@ -57,6 +57,7 @@
                 <?php
                 $i = 0;
                 foreach ($list as $row) {
+
                     $i++;
                     ?>
                     <tr>
@@ -69,7 +70,7 @@
                                   original-title="<?php echo $row['MA_LOAI_SANPHAM']; ?>">
                                 <?php echo $i; ?></span>
                         </td>
-                        <td><span class="tipS" original-title=""><?php echo $row['TEN_LOAI_SANPHAM']; ?></span></td>
+                        <td><span class="tipS" original-title=""><?php echo $row['TEN_LOAI_SANPHAM'].$row['TRANGTHAI']; ?></span></td>
                         <td><span class="tipS" original-title=""><?php echo $row['TEN_NHA_CUNGCAP']; ?></span></td>
                         <td><span class="tipS" original-title=""><?php echo $row['TEN_THUONGHIEU']; ?></span></td>
                         <td class="option">
