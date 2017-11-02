@@ -1,5 +1,6 @@
 <script>
     $(function () {
+        check();
         $('#birthday').datepicker();
         $('#phone').keyup(function (e) {
             e.preventDefault();
@@ -87,8 +88,8 @@
     })
 
     function check() {
-        var level = document.getElementById('level').val();
-        if (level == '0')
+        var level = $('#level').val();
+        if(level == '0')
             return false;
         else
             return true;
@@ -119,9 +120,9 @@
                         <div class="formRight">
                             <select name="level" _autocheck="true" id='level' class="left" required>
                                 <option value="0">&nbsp;Lựa chọn chức vụ &nbsp;</option>
-                                <?php foreach ($listLevel as $itemLevel) { ?>
-                                    <option value="<?php echo $itemLevel['MA_CHUCVU']; ?>">
-                                        <?php echo $itemLevel['TEN_CHUCVU']; ?>
+                                <?php for ($i = 1; $i < count($listLevel); $i++) { ?>
+                                    <option value="<?php echo $listLevel[$i]['MA_CHUCVU']; ?>">
+                                        <?php echo $listLevel[$i]['TEN_CHUCVU']; ?>
                                     </option>
                                 <?php } ?>
                             </select>

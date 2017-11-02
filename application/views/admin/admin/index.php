@@ -69,7 +69,7 @@
                                 <?php echo $row['MA_NHANVIEN']; ?></span>
                         </td>
                         <td><span class="tipS"
-                                  original-title="<?php echo 'Giới tính: ' . ($row['GIOITINH'] == '0') ? 'Nam' : 'Nữ'; ?>">
+                                  original-title="<?php echo 'Giới tính: ' . ($row['GIOITINH'] == 0 ? 'Nam' : 'Nữ'); ?>">
 							<?php echo $row['HO'] . " " . $row['TEN']; ?>		</span></td>
                         <td><span class="tipS" original-title="<?php echo 'Ngày sinh: ' . $row['NGAYSINH']; ?>">
 							<?php echo $row['EMAIL']; ?>				</span></td>
