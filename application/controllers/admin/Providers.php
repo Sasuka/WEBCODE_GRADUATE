@@ -202,7 +202,6 @@ Class Providers extends MY_Controller{
                 $phone = $this->input->post('phone', true);
                 $email = $this->input->post('email', true);
                 $address = $this->input->post('address', true);
-                $status = $this->input->post('status', true);
 
                 $dt = array(
                     'TEN_NHA_CUNGCAP' =>  mb_strtoupper($providerName, 'UTF-8'),
@@ -210,7 +209,6 @@ Class Providers extends MY_Controller{
                     'SDT' =>$phone,
                     'EMAIL' =>$email,
                     'DIACHI_NHA_CUNGCAP' => $address,
-                    'TRANGTHAI' => $status
 
                 );
                 /*kiểm tra thương hiệu này đã tồn tại hay chưa*/
@@ -240,18 +238,28 @@ Class Providers extends MY_Controller{
         $info = $this->providers_model->get_info_rule($where);
         if (!$info){
             $this->session->set_flashdata('message', 'Không tìm thấy !');
-            redirect(admin_url('branh'));
-        }
-        /*Xóa bằng cách cập nhật lại trạng thái*/
-        $dt = array(
-            'TRANGTHAI' => 0
-        );
-        if ($this->providers_model->update_rule($where, $dt)) {
-            //tao noi dung thong bao
-            $this->session->set_flashdata('message', 'Xóa thành công! ');
             redirect(admin_url('providers'));
-        } else {
-            $this->session->set_flashdata('message', 'Xóa thất bại! ');
+        }
+        if ($info['TRANGTHAI'] == '1'){
+            // chưa cung cấp loại or nhập hàng
+            if($this->providers_model->del_rule($where)){
+                $this->session->set_flashdata('message', 'Xóa thành công! ');
+                redirect(admin_url('providers'));
+            }else{
+                $this->session->set_flashdata('message', 'Xóa thất bại! ');
+            }
+        }elseif ($info['TRANGTHAI'] == '2') {
+            /*Xóa bằng cách cập nhật lại trạng thái*/
+            $dt = array(
+                'TRANGTHAI' => 0
+            );
+            if ($this->providers_model->update_rule($where, $dt)) {
+                //tao noi dung thong bao
+                $this->session->set_flashdata('message', 'Xóa thành công! ');
+                redirect(admin_url('providers'));
+            } else {
+                $this->session->set_flashdata('message', 'Xóa thất bại! ');
+            }
         }
     }
 

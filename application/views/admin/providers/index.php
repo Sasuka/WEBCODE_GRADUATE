@@ -73,12 +73,13 @@
                         <td><span class="tipS" original-title="<?php echo $row['EMAIL']; ?>"><?php echo $row['SDT']; ?></span></td>
                         <td><span class="tipS" original-title="<?php echo $row['WEBSITE']; ?>"><?php echo $row['DIACHI_NHA_CUNGCAP']; ?></span></td>
                         <td class="option">
+                            <?php if ($row['TRANGTHAI'] == '1'){?>
                             <a href="<?php echo admin_url('providers/edit/' . $row['MA_NHA_CUNGCAP']); ?>" class="tipS "
                                original-title="Chỉnh sửa">
                                 <img src="<?php echo public_url('admin/') ?>images/icons/color/edit.png">
                             </a>
-
-                            <?php if ($row['TRANGTHAI'] == '1') { ?>
+                            <?php }?>
+                            <?php if ($row['TRANGTHAI'] == '1'||$row['TRANGTHAI'] == '2') { ?>
                                 <a href="<?php echo admin_url('providers/delete/' . $row['MA_NHA_CUNGCAP']); ?>"
                                    class="tipS verify_action"
                                    original-title="Xóa">

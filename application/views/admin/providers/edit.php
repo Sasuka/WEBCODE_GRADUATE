@@ -93,21 +93,7 @@ $tmp['status'] = (isset($_POST['status']) ? $_POST['status'] : $info['TRANGTHAI'
                     <div class="clear"></div>
                 </div>
                 <!-- TRANG THAI -->
-                <div class="formRow">
-                    <label class="formLeft" for="param_name">Trạng thái:<span class="req">*</span></label>
-                    <div class="formRight">
-                        <label class="radio-inline"><input type="radio" name="status" value="0"
-                                <?php echo $tmp['status'] == '0' ? 'checked' : ''; ?>>
-                            Tạm nghỉ</label>
-                        <label class="radio-inline"><input type="radio" name="status" value="1"
-                                <?php echo $tmp['status'] == '1' ? 'checked' : ''; ?>> Hoạt động</label>
-                        <span name="status_autocheck" class="autocheck"></span>
-                        <div name="status_error" class="clear error">
-                            <?php echo form_error('status'); ?></div>
 
-                    </div>
-                    <div class="clear"></div>
-                </div>
                 <div class="formSubmit">
                     <input value="Cập nhật" class="redB" type="submit">
                 </div>
