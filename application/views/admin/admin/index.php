@@ -1,5 +1,5 @@
 <!-- head -->
-<?php $this->load->view('admin/admin/head'); ?>
+<?php $this->load->view('admin/admin/head',$this->data); ?>
 <!-- line -->
 <div class="line"></div>
 <!--  content-->

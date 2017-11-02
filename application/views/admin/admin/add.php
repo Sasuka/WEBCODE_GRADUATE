@@ -105,33 +105,34 @@
 
     <div class="widget">
         <div class="title">
-            <?php if(isset($errs)) echo 'www'.$errs;?>
             <img src="<?php echo public_url('admin') ?>/images/icons/dark/add.png" class="titleIcon">
             <h6>Thêm mới quản trị viên</h6>
         </div>
 
-        <form class="form" id="form-employ" action="add" method="post" enctype="multipart/form-data"
+        <form class="form" id="form-employ" action="" method="post" enctype="multipart/form-data"
               onclick="return check();">
             <fieldset>
-
-                <!-- chức vụ -->
-                <div class="formRow">
-                    <label class="formLeft" for="param_cat">Chức vụ:<span class="req">*</span></label>
-                    <div class="formRight">
-                        <select name="level" _autocheck="true" id='level' class="left" required>
-                            <option value="0">&nbsp;Lựa chọn chức vụ &nbsp;</option>
-                            <?php foreach ($listLevel as $itemLevel) { ?>
-                                <option value="<?php echo $itemLevel['MA_CHUCVU']; ?>">
-                                    <?php echo $itemLevel['TEN_CHUCVU']; ?>
-                                </option>
-                            <?php } ?>
-                        </select>
-                        <span name="cat_autocheck" class="autocheck"></span>
-                        <div name="level_error" class="clear error" id="level_error"></div>
+                <?php if ($type == '2') { ?>
+                    <!-- chức vụ -->
+                    <div class="formRow">
+                        <label class="formLeft" for="param_cat">Chức vụ:<span class="req">*</span></label>
+                        <div class="formRight">
+                            <select name="level" _autocheck="true" id='level' class="left" required>
+                                <option value="0">&nbsp;Lựa chọn chức vụ &nbsp;</option>
+                                <?php foreach ($listLevel as $itemLevel) { ?>
+                                    <option value="<?php echo $itemLevel['MA_CHUCVU']; ?>">
+                                        <?php echo $itemLevel['TEN_CHUCVU']; ?>
+                                    </option>
+                                <?php } ?>
+                            </select>
+                            <span name="cat_autocheck" class="autocheck"></span>
+                            <div name="level_error" class="clear error" id="level_error"></div>
+                        </div>
+                        <div class="clear"></div>
                     </div>
-                    <div class="clear"></div>
-                </div>
-
+                <?php } elseif ($type == '1') { ?>
+                    <input type="hidden" name="level" id='level' value="<?php echo $type; ?>"/>
+                <?php } ?>
                 <!-- ho -->
                 <div class="formRow">
                     <label class="formLeft" for="param_fname">Họ:<span class="req">*</span></label>

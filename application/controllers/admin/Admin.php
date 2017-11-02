@@ -15,11 +15,16 @@ class Admin extends MY_Controller
         $this->data['listLevel'] = $this->admin_model->getListLevel();
     }
 
-    public function index()
+    public function index($type = '2')
     {
         $input = array();
-        $where = array('nhanvien.MA_CHUCVU !=' => 1);
+        if ($type == 1){
+            $where = array('nhanvien.MA_CHUCVU ' => 1);
+        }else{
+            $where = array('nhanvien.MA_CHUCVU !=' => 1);
+        }
         $this->data['list'] =  $this->admin_model->listEmployee($where);
+        $this->data['type'] = $type;
         $this->data['temp'] = 'admin/admin/index';
         $this->load->view('admin/main', $this->data);
     }
@@ -88,12 +93,11 @@ class Admin extends MY_Controller
     //kiem tra so dien thoai co ai dang ky chua
 
     //==================== THÊM QUAN TRỊ VIÊN =======================//
-    public function add()
+    public function add($type = '2')
     {
 
         $this->load->library('form_validation');
         $this->load->helper('form');
-
         /*kiểm tra data khi post len*/
         if ($this->input->post()) {
             $this->form_validation->set_rules('fname', 'Họ', 'min_length[2]');
@@ -140,22 +144,21 @@ class Admin extends MY_Controller
                     echo 'Them thất bại';
                 }
                 //chuyen toi trang quan trị viên
-                if ($chucvu == 1) {
-                    redirect(admin_url('admin'));
+//               // redirect(admin_url('admin/employee/'.$type));
+                if ($chucvu == '1') {
+                    redirect(admin_url('admin/index/'.$type));
                 } else {
-
-                    redirect(admin_url('admin/employee'));
-
+                    redirect(admin_url('admin/employee/'.$type));
                 }
             }
         }
-
+        $this->data['type'] = $type;
         $this->data['temp'] = 'admin/admin/add';
         $this->load->view('admin/main', $this->data);
     }
 
     //==================== EDIT QUAN TRỊ VIÊN =======================//
-    public function edit()
+    public function edit($type = '2')
     {
         $this->load->library('form_validation');
         $this->load->helper('form');
@@ -236,7 +239,7 @@ class Admin extends MY_Controller
                 }
             }
         }
-
+        $this->data['type'] = $type;
         $this->data['temp'] = 'admin/admin/edit';
         $this->load->view('admin/main', $this->data);
     }
@@ -286,7 +289,7 @@ class Admin extends MY_Controller
        // pre($this->data['listEmployee']);
         //lay noi dung cua messager
         $this->data['message'] = $this->session->flashdata('message');
-
+        $this->data['type'] = $type;
         $this->data['temp'] = 'admin/admin/index';
         $this->load->view('admin/main', $this->data);
     }
