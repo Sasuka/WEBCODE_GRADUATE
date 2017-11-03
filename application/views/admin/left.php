@@ -34,6 +34,10 @@
                     <a href="admin/product_order.html">
                         Đơn hàng sản phẩm </a>
                 </li>
+                <li>
+                    <a href="<?php echo admin_url('import')?>">
+                        Nhập hàng </a>
+                </li>
             </ul>
         </li>
         <li class="product">

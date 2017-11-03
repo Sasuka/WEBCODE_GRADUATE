@@ -9,7 +9,7 @@ Class Providers extends MY_Controller{
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('providers_model');
+        $this->load->model(array('providers_model','import_model'));
     }
 
     /*

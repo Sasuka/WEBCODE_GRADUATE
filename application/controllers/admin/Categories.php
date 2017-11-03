@@ -72,6 +72,7 @@ Class Categories extends MY_Controller
     function add()
     {
         /*load ra form validate dữ liệu */
+        $input = array();
         $this->load->library('form_validation');
         $this->load->helper('form');
 
@@ -98,7 +99,8 @@ Class Categories extends MY_Controller
                 }
             }
         }
-        $this->data['providers'] = $this->providers_model->getList();
+        $input['where'] = array('TRANGTHAI!=' => 0);
+        $this->data['providers'] = $this->providers_model->getList($input);
         $this->data['brand'] = $this->branh_model->getList();
         $this->data['temp'] = 'admin/categories/add';
         $this->load->view('admin/main', $this->data);
