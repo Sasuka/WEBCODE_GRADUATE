@@ -8,6 +8,8 @@
  */
 Class Categories extends MY_Controller
 {
+    protected $tb = 'loai_sanpham';
+
     public function __construct()
     {
         parent::__construct();
@@ -53,8 +55,9 @@ Class Categories extends MY_Controller
     function index()
     {
         $input = array();
+        $select = 'MA_LOAI_SANPHAM,TEN_LOAI_SANPHAM,TEN_NHA_CUNGCAP,TEN_THUONGHIEU,' . $this->tb . '.TRANGTHAI,' . $this->tb . '.MA_NHA_CUNGCAP,' . $this->tb . '.MA_THUONGHIEU';
         $input['order'] = array('TRANGTHAI', 'DESC');
-        $list = $this->categories_model->getListThreeJoin('nha_cungcap', 'MA_NHA_CUNGCAP', 'thuonghieu', 'MA_THUONGHIEU', '');
+        $list = $this->categories_model->getListThreeJoin('nha_cungcap', 'MA_NHA_CUNGCAP', 'thuonghieu', 'MA_THUONGHIEU', '', $select);
         //  pre($list);
         $this->data['list'] = $list;
 
@@ -176,6 +179,7 @@ Class Categories extends MY_Controller
         if ($this->categories_model->update_rule($where, $dt)) {
             //tao noi dung thong bao
             $this->session->set_flashdata('message', 'Xóa thành công! ');
+            //  pre($this->categories_model->getList());
             redirect(admin_url('categories'));
         } else {
             $this->session->set_flashdata('message', 'Xóa thất bại! ');

@@ -56,6 +56,7 @@
 
                 <?php
                 $i = 0;
+
                 foreach ($list as $row) {
 
                     $i++;
