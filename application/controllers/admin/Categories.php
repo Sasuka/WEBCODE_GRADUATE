@@ -56,8 +56,8 @@ Class Categories extends MY_Controller
     {
         $input = array();
         $select = 'MA_LOAI_SANPHAM,TEN_LOAI_SANPHAM,TEN_NHA_CUNGCAP,TEN_THUONGHIEU,' . $this->tb . '.TRANGTHAI,' . $this->tb . '.MA_NHA_CUNGCAP,' . $this->tb . '.MA_THUONGHIEU';
-        $input['order'] = array('TRANGTHAI', 'DESC');
-        $list = $this->categories_model->getListThreeJoin('nha_cungcap', 'MA_NHA_CUNGCAP', 'thuonghieu', 'MA_THUONGHIEU', '', $select);
+        $order = 'TRANGTHAI';
+        $list = $this->categories_model->getListThreeJoin('nha_cungcap', 'MA_NHA_CUNGCAP', 'thuonghieu', 'MA_THUONGHIEU','', $select,$order);
         //  pre($list);
         $this->data['list'] = $list;
 
@@ -134,19 +134,21 @@ Class Categories extends MY_Controller
                 $categories = $this->input->post('categories', true);
                 $providers = $this->input->post('providers', true);
                 $brand = $this->input->post('brand', true);
+                $status = $this->input->post('status', true);
                 $dt = array(
                     'TEN_LOAI_SANPHAM' => mb_strtoupper($categories, 'UTF-8'),
                     'MA_NHA_CUNGCAP' => $providers,
-                    'MA_THUONGHIEU' => $brand
+                    'MA_THUONGHIEU' => $brand,
+                    'TRANGTHAI' => $status
                 );
                 /*kiểm tra thương hiệu này đã tồn tại hay chưa*/
 
                 if ($this->categories_model->update_rule($where, $dt)) {
                     //tao noi dung thong bao
-                    $this->session->set_flashdata('message', 'Thêm loại sản phẩm thành công!');
+                    $this->session->set_flashdata('message', 'Cập nhật thành công!');
                     redirect(admin_url('categories'));
                 } else {
-                    $this->session->set_flashdata('message', 'Thêm loại sản phẩm thất bại');
+                    $this->session->set_flashdata('message', 'Cập nhật thất bại');
                 }
             }
         }

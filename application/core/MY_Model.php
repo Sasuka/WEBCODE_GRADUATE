@@ -2024,11 +2024,12 @@ class MY_Model extends CI_Model
 
     }
 
-    public function getListThreeJoin($table1, $condition1, $table2, $condition2, $where = '', $select = '*')
+    public function getListThreeJoin($table1, $condition1, $table2, $condition2, $where = '', $select = '*',$order = '')
     {
         $this->db->select($select);
         $this->db->distinct();
         $this->db->from($this->table);
+        $this->db->order_by($order,'DESC');
         $this->db->join($table1, "$table1.$condition1=$this->table.$condition1");
         $this->db->join($table2, "$table2.$condition2=$this->table.$condition2");
         if ($where != '') {
