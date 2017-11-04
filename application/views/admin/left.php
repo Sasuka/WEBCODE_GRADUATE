@@ -47,6 +47,10 @@
             </a>
             <ul class="sub" style="display: none;">
                 <li>
+                    <a href="<?php echo admin_url('warehouse')?>">
+                        Kho</a>
+                </li>
+                <li>
                     <a href="<?php echo admin_url('Providers')?>">
                         Nhà cung cấp</a>
                 </li>
@@ -57,6 +61,10 @@
                 <li>
                     <a href="<?php echo admin_url('categories')?>">
                         Loại sản phẩm </a>
+                </li>
+                <li>
+                    <a href="<?php echo admin_url('madein')?>">
+                        Xuất xứ</a>
                 </li>
                 <li>
                     <a href="admin/comment.html">
