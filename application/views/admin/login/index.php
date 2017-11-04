@@ -4,20 +4,14 @@
 
     <title>Login Page</title>
     <?php
-    $this->load->view('admin/head');
+        $this->load->view('admin/head');
     ?>
-    <style>
-        .title img{
-            width: 20px;
-            height: 15px;
-        }
-    </style>
 </head>
 <body class="nobg loginPage" style="min-height:100%;">
 <div class="loginWrapper" style="top:45%;">
 
     <div class="widget" id="admin_login" style="height:auto; margin:auto;">
-        <div class="title"><img src="<?php echo public_url(); ?>images/logo/logo.ico" alt="" class="titleIcon">
+        <div class="title"><img src="<?php echo public_url('admin/crown');?>/images/icons/dark/laptop.png" alt="" class="titleIcon">
             <h6>Đăng nhập</h6>
         </div>
 

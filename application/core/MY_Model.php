@@ -375,7 +375,7 @@ class MY_Model extends CI_Model
      * @param bool $escape should the values be escaped or not - defaults to true
      * @return str/array Returns id/ids of inserted rows
      */
-    public function _update1($data = NULL, $column_name_where = NULL, $escape = TRUE)
+    public function update($data = NULL, $column_name_where = NULL, $escape = TRUE)
     {
         if (!isset($data) && $this->validated != FALSE) {
             $data = $this->validated;
@@ -1748,11 +1748,8 @@ class MY_Model extends CI_Model
      * Lay thong tin cua row tu dieu kien
      * $where: Mảng điều kiện
      */
-    function get_info_rule($where = array(), $filed = '')
+    function get_info_rule($where = array())
     {
-        if ($filed) {
-            $this->db->select(strtoupper($filed));
-        }
         $this->db->where($where);
         $query = $this->db->get($this->table);
         if ($query->num_rows()) {
@@ -1770,21 +1767,7 @@ class MY_Model extends CI_Model
         return $this->db->get('chucvu')->result_array();
     }
 
-    /*
-        * Update theo id
-        * $data: data need update
-        * */
-//    public function update($id, $data = array()){
-//        if (!$id){
-//            return false;
-//        }else{
-//            $where = array();
-//            $where[$this->key] = $id;
-//            $this->update_rule($where,$data);
-//            return true;
-//
-//        }
-//    }
+
     /**
      * Cap nhat row tu dieu kien
      * $where: điều kiện
@@ -1859,7 +1842,7 @@ class MY_Model extends CI_Model
     }
 
     //thuc hien update bang nao du lieu nao theo gi
-    public function update1($table = '', $data = array(), $where = array())
+    public function _update($table = '', $data = array(), $where = array())
     {
         if ($table == '' || $data == '' || $where == '')
             return false;
@@ -1868,18 +1851,6 @@ class MY_Model extends CI_Model
             return true;
         } else
             return false;
-    }
-
-    public function _update($data = array(), $where = array())
-    {
-        if ($data == '' || $where == '')
-            return false;
-        $this->db->where($where);
-        if ($this->db->update($this->table, $data)) {
-            return true;
-        } else {
-            return false;
-        }
     }
 
     //thuc hien delete bang nao,theo dieu kien nao
@@ -1928,7 +1899,6 @@ class MY_Model extends CI_Model
             $this->db->where($input['where']);
         }
         //tim kiem theo like
-        //$input['like'] = array('name' =>'abc');
         if ((isset($input['like'])) && $input['like']) {
             $this->db->like($input['like'][0], $input['like'][1]);
         }
@@ -1999,37 +1969,24 @@ class MY_Model extends CI_Model
         $this->db->select('*');
         $this->db->from($this->table);
         $this->db->join($tabl1, "$tabl1.$condition=$this->table.$condition");
-        if ($where != '') {
+        if ($where !=''){
             $this->db->where($where);
         }
         return $this->db->get()->result_array();
 
     }
-    /* table1 : table cần join, $condition: là điều kiện để join ~ on, $lrb: hình thức join, $select : thuộc tính cần select*/
-    public function getListJoinLRB($table1, $condition,$where = array(), $lrb = 'left',$select = '')
-    {
-        if ($select !=''){
-            $this->db->select($select);
-        }else{
-            $this->db->select('*');
-        }
-
+    public function getListJoinLRB($table1,$condition,$lrb ='left'){
+        $this->db->select('*');
         $this->db->from($this->table);
-
-        $this->db->join($table1, "$table1.$condition = $this->table.$condition", $lrb);
-        if ($where != ''){
-            $this->db->where($where);
-        }
+        $this->db->join($table1,"$table1.$condition=$this->table.$condition",$lrb);
         return $this->db->get()->result_array();
 
     }
 
-    public function getListThreeJoin($table1, $condition1, $table2, $condition2, $where = '', $select = '*',$order = '')
+    public function getListThreeJoin($table1, $condition1, $table2, $condition2, $where = '')
     {
-        $this->db->select($select);
-        $this->db->distinct();
+        $this->db->select('*');
         $this->db->from($this->table);
-        $this->db->order_by($order,'DESC');
         $this->db->join($table1, "$table1.$condition1=$this->table.$condition1");
         $this->db->join($table2, "$table2.$condition2=$this->table.$condition2");
         if ($where != '') {
@@ -2037,23 +1994,5 @@ class MY_Model extends CI_Model
         }
         return $this->db->get()->result_array();
     }
-    /***************TIEN TAI*******************/
-    /*order mặc định (VD: $order = array('id', 'desc'))*/
-    var $order = '';
-    // Các field select mặc định khi get_list (VD: select='id,name')
-    var $select = '';
-
-    /*
-     * Thêm row mới
-     * $data : là dữ liệu cần thêm.
-     * */
-    public function create($data = array())
-    {
-        if ($this->db->insert($this->table, $data)) {
-            return true;
-        } else
-            return false;
-    }
-
 
 }

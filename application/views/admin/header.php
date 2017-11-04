@@ -1,20 +1,19 @@
-<!-- Account panel top -->
 <div class="topNav">
     <div class="wrapper">
         <div class="welcome">
-            <span>Xin chào: <b>admin!</b></span>
+            <span><b>Trang nội bộ</b></span>
         </div>
 
         <div class="userNav">
             <ul>
-                <li><a href="<?php echo admin_url()?>">
-                        <img style="margin-top:7px;" src="<?php echo public_url('admin/')?>images/icons/light/home.png">
+                <li><a href="<?php echo admin_url();?>">
+                        <img style="margin-top:7px;" src="<?php echo public_url('admin')?>/images/icons/light/home.png">
                         <span>Trang chủ</span>
                     </a></li>
 
                 <!-- Logout -->
                 <li><a href="<?php echo admin_url('admin/logout')?>">
-                        <img src="<?php echo public_url('admin/')?>images/icons/topnav/logout.png" alt="">
+                        <img src="<?php echo public_url('admin')?>/images/icons/topnav/logout.png" alt="">
                         <span>Đăng xuất</span>
                     </a></li>
 

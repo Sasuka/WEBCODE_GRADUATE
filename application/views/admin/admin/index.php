@@ -1,92 +1,116 @@
 <!-- head -->
-<?php $this->load->view('admin/admin/head',$this->data); ?>
-<!-- line -->
-<div class="line"></div>
-<!--  content-->
+<?php
+$this->load->view('admin/admin/head', $this->_data);
+$account = $this->session->userdata('account');
+$level = $this->session->userdata('level');
+
+?>
+<!-- table member -->
+<div class="line">
+</div>
+<!-- MAIN CONTENT -->
 <div class="wrapper">
+
     <?php
     //  var_dump($this->session->flashdata('message'));
     if ($this->session->flashdata('message') != '') {
-        $this->data['message'] = $this->session->flashdata('message');
-        $this->load->view('admin/messager', $this->data);
+        $this->_data['message'] = $this->session->flashdata('message');
+        $this->load->view('admin/admin/messager', $this->_data);
     }
     ?>
     <div class="widget">
 
         <div class="title">
-            <span class="titleIcon"><div class="checker" id="uniform-titleCheck"><span><input id="titleCheck"
-                                                                                              name="titleCheck"
-                                                                                              style="opacity: 0;"
-                                                                                              type="checkbox"></span></div></span>
-            <h6>Danh sách thành viên</h6>
-            <div class="num f12">Tổng số: <b><?php echo count($list); ?></b></div>
+            <span class="titleIcon">
+               <img src="<?php echo public_url('admin/images/userPic.png') ?>">
+            </span>
+            <h6>Danh sách Nhân viên</h6>
+            <div class="num f12">Tổng số: <b><?php echo count($listEmploy); ?></b></div>
         </div>
 
-        <form action="http://localhost/webphp/index.php/admin/user.html" method="get" class="form" name="filter">
+        <form action="<?php echo public_url('admin') ?>/user.html" method="get" class="form" name="filter">
             <table class="sTable mTable myTable withCheck" id="checkAll" width="100%" cellspacing="0" cellpadding="0">
                 <thead>
                 <tr>
-                    <td style="width:10px;"><img src="<?php echo public_url('admin/') ?>images/icons/tableArrows.png">
-                    </td>
+
                     <td style="width:80px;">Mã số</td>
                     <td>Tên</td>
                     <td>Email</td>
                     <td>Điện thoại</td>
-                    <td>Địa chỉ</td>
+                    <td style="overflow: hidden;text-overflow: ellipsis;">Địa chỉ</td>
                     <td style="width:100px;">Hành động</td>
                 </tr>
                 </thead>
 
                 <tfoot>
                 <tr>
-                    <td colspan="7">
-                        <div class="list_action itemActions">
-                            <a href="#submit" id="submit" class="button blueB" url="user/del_all.html">
-                                <span style="color:white;">Xóa hết</span>
-                            </a>
-                        </div>
+                    <td colspan="6">
 
-                        <div class="pagination">
-                        </div>
                     </td>
                 </tr>
                 </tfoot>
 
                 <tbody>
                 <!-- Filter -->
-
-                <?php //pre($list, false);
-                foreach ($list as $row) {
+                <!-- thuc hien danh sach nguoi quan tri -->
+                <?php
+                foreach ($listEmploy as $personal) {
                     ?>
                     <tr>
+
+
+                        <td class="textC"><?= $personal['MA_NHANVIEN'] ?></td>
+
+
+                        <td><span title="<?= $personal['TEN_CHUCVU']; ?>" class="tipS">
+							<?= $personal['HO'] . ' ' . $personal['TEN']; ?></span></td>
+
+
+                        <td><span title="<?= $personal['EMAIL'] ?>" class="tipS">
+							<?= $personal['EMAIL'] ?>					</span></td>
+
                         <td>
-                            <div class="checker" id="uniform-undefined"><span>
-                        <input name="id[]" value="<?php echo $row['MA_NHANVIEN']; ?>" style="opacity: 0;"
-                               type="checkbox"></span></div>
+                            <span title="SDT là duy nhất" class="tipS">
+                                <?= $personal['SDT'] ?></span>
                         </td>
-                        <td><span class="tipS"
-                                  original-title=" <?php echo 'Chức vụ: ' . $row['TEN_CHUCVU']; ?>">
-                                <?php echo $row['MA_NHANVIEN']; ?></span>
+
+                        <td>
+                            <?= $personal['DIACHI'] ?>
                         </td>
-                        <td><span class="tipS"
-                                  original-title="<?php echo 'Giới tính: ' . ($row['GIOITINH'] == 0 ? 'Nam' : 'Nữ'); ?>">
-							<?php echo $row['HO'] . " " . $row['TEN']; ?>		</span></td>
-                        <td><span class="tipS" original-title="<?php echo 'Ngày sinh: ' . $row['NGAYSINH']; ?>">
-							<?php echo $row['EMAIL']; ?>				</span></td>
-                        <td><?php echo $row['SDT']; ?></td>
-                        <td><?php echo $row['DIACHI']; ?></td>
+
+
                         <td class="option">
-
-                            <a href="<?php echo admin_url('admin/edit/'.$row['MA_NHANVIEN']); ?>" class="tipS " original-title="Chỉnh sửa">
-                                <img src="<?php echo public_url('admin/') ?>images/icons/color/edit.png">
-                            </a>
-
-                            <?php if($row['TRANGTHAI'] == '1'){?>
-                            <a href="<?php echo admin_url('admin/delete/'.$row['MA_NHANVIEN']); ?>" class="tipS verify_action"
-                               original-title="Xóa">
-                                <img src="<?php echo public_url('admin/') ?>images/icons/color/delete.png">
-                            </a>
-                            <?php }?>
+                            <?php if ($account['MA_NHANVIEN'] == $personal['MA_NHANVIEN']||$level ==='Admin') { ?>
+                                <a href="<?php echo admin_url('admin/edit/' . $personal['MA_NHANVIEN']) ?>"
+                                   title="Chỉnh sửa" class="tipS ">
+                                    <img src="<?php echo public_url('admin') ?>/images/icons/color/edit.png">
+                                </a>
+                                <?php
+                                if ($personal['TRANGTHAI'] == 1) { ?>
+                                    <a href="<?php echo admin_url('admin/delete/' . $personal['MA_NHANVIEN']) ?>"
+                                       title="Xóa" class="tipS verify_action">
+                                        <img src="<?php echo public_url('admin') ?>/images/icons/color/delete.png">
+                                    </a>
+                                    <?php
+                                }
+                                ?>
+                                <?php
+                            } else {
+                                ?>
+                                <a href="#"
+                                   title="Chỉnh sửa" class="tipS " disabled>
+                                    <img src="<?php echo public_url('admin') ?>/images/icons/color/edit.png">
+                                </a>
+                                <?php
+                                if ($personal['TRANGTHAI'] == 1) { ?>
+                                    <a href="#"
+                                       title="Xóa" class="tipS" disabled>
+                                        <img src="<?php echo public_url('admin') ?>/images/icons/color/delete.png">
+                                    </a>
+                                    <?php
+                                }
+                            }
+                            ?>
                         </td>
                     </tr>
                     <?php
@@ -97,4 +121,6 @@
         </form>
     </div>
 </div>
+<!-- END MAIN -->
 <div class="clear mt30"></div>
+<!-- end table -->

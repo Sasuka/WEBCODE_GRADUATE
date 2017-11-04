@@ -1,6 +1,6 @@
+<!-- head -->
 <script>
     $(function () {
-        check();
         $('#birthday').datepicker();
         $('#phone').keyup(function (e) {
             e.preventDefault();
@@ -21,8 +21,7 @@
         $('#level').change(function (e) {
             var level = $(this).val();
 
-            if (level == '0') {
-                e.preventDefault();
+            if (level == -1) {
                 alert('Vui lòng chọn chức vụ');
                 return false;
             } else {
@@ -33,7 +32,7 @@
         });
         $('#form-employ').submit(function (e) {
 
-            if ($('#level').val() == '') {
+            if ($('#level').val() == -1) {
                 e.preventDefault();
                 $(this).focus();
                 $('#level_error').html('<span style="color:red;">Vui lòng chọn chức vụ</span>');
@@ -88,59 +87,64 @@
     })
 
     function check() {
-        var level = $('#level').val();
-        if(level == '0')
+        var level = document.getElementById('level').val();
+        if (level == -1)
             return false;
         else
             return true;
     }
 </script>
-
-<!-- head -->
-<?php $this->load->view('admin/admin/head'); ?>
-<!-- line -->
-<div class="line"></div>
-<!--  content-->
+<?php
+$this->load->view('admin/admin/head', $this->data);
+?>
+<div class="line">
+</div>
 <div class="wrapper">
+    <?php
+    if ($this->session->flashdata('message') != '') {
+        $this->_data['message'] = $this->session->flashdata('message');
+        $this->load->view('admin/admin/messager', $this->_data);
+    }
+    ?>
     <!-- Form -->
-
     <div class="widget">
         <div class="title">
             <img src="<?php echo public_url('admin') ?>/images/icons/dark/add.png" class="titleIcon">
             <h6>Thêm mới quản trị viên</h6>
         </div>
 
-        <form class="form" id="form-employ" action="" method="post" enctype="multipart/form-data"
+        <form class="form" id="form-employ" action="add" method="post" enctype="multipart/form-data"
               onclick="return check();">
             <fieldset>
-                <?php if ($type == '2') { ?>
-                    <!-- chức vụ -->
-                    <div class="formRow">
-                        <label class="formLeft" for="param_cat">Chức vụ:<span class="req">*</span></label>
-                        <div class="formRight">
-                            <select name="level" _autocheck="true" id='level' class="left" required>
-                                <option value="0">&nbsp;Lựa chọn chức vụ &nbsp;</option>
-                                <?php for ($i = 1; $i < count($listLevel); $i++) { ?>
-                                    <option value="<?php echo $listLevel[$i]['MA_CHUCVU']; ?>">
-                                        <?php echo $listLevel[$i]['TEN_CHUCVU']; ?>
-                                    </option>
-                                <?php } ?>
-                            </select>
-                            <span name="cat_autocheck" class="autocheck"></span>
-                            <div name="level_error" class="clear error" id="level_error"></div>
-                        </div>
-                        <div class="clear"></div>
+
+                <!-- chức vụ -->
+                <div class="formRow">
+                    <label class="formLeft" for="param_cat">Chức vụ:<span class="req">*</span></label>
+                    <div class="formRight">
+                        <select name="level" _autocheck="true" id='level' class="left">
+                            <option value="-1">&nbsp;Lựa chọn chức vụ &nbsp;</option>
+
+                            <?php
+                            foreach ($level as $item) {
+                                ?>
+                                <option value="<?= $item['MA_CHUCVU']; ?>"><?= $item['TEN_CHUCVU']; ?></option>
+                                <?php
+                            }
+                            //                         print_r($level);
+                            ?>
+                        </select>
+                        <span name="cat_autocheck" class="autocheck"></span>
+                        <div name="level_error" class="clear error" id="level_error"></div>
                     </div>
-                <?php } elseif ($type == '1') { ?>
-                    <input type="hidden" name="level" id='level' value="<?php echo $type; ?>"/>
-                <?php } ?>
+                    <div class="clear"></div>
+                </div>
+
                 <!-- ho -->
                 <div class="formRow">
                     <label class="formLeft" for="param_fname">Họ:<span class="req">*</span></label>
                     <div class="formRight">
                                 <span class="oneTwo"><input name="fname" id="fname" _autocheck="true"
-                                                            type="text" value="<?php echo set_value('fname') ?>"
-                                                            required></span>
+                                                            type="text" value="<?php echo set_value('fname') ?>"></span>
                         <span name="fname_autocheck" class="autocheck"></span>
                         <div name="fname_error" id="fname_error"
                              class="clear error"><?php echo form_error('fname'); ?></div>
@@ -152,8 +156,7 @@
                     <label class="formLeft" for="param_name">Tên:<span class="req">*</span></label>
                     <div class="formRight">
                                 <span class="oneTwo"><input name="lname" id="lname" _autocheck="true"
-                                                            type="text" value="<?php echo set_value('lname') ?>"
-                                                            required></span>
+                                                            type="text" value="<?php echo set_value('lname') ?>"></span>
                         <span name="lname_autocheck" class="autocheck"></span>
                         <div name="lname_error" id="lname_error"
                              class="clear error"><?php echo form_error('lname'); ?></div>
@@ -166,7 +169,7 @@
                     <div class="formRight">
                                 <span class="oneTwo"><input name="password" id="password" _autocheck="true"
                                                             type="password"
-                                                            value="<?php echo set_value('password') ?>" required></span>
+                                                            value="<?php echo set_value('password') ?>"></span>
                         <span name="name_autocheck" class="autocheck"></span>
                         <div name="name_error" id="password_error"
                              class="clear error"><?php echo form_error('password'); ?></div>
@@ -179,7 +182,7 @@
                     <div class="formRight">
                                 <span class="oneTwo"><input name="re-pass" id="re-pass" _autocheck="true"
                                                             type="password"
-                                                            value="<?php echo set_value('re-pass') ?>" required></span>
+                                                            value="<?php echo set_value('re-pass') ?>"></span>
                         <span name="name_autocheck" class="autocheck"></span>
                         <div name="name_error" id="re-pass_error"
                              class="clear error"><?php echo form_error('re-pass'); ?></div>
@@ -192,7 +195,7 @@
                     <div class="formRight">
                                 <span class="oneTwo"><input name="phone" id="phone" _autocheck="true"
                                                             type="text" value="<?php echo set_value('phone') ?>"
-                                                            maxlength="15" required></span>
+                                                            maxlength="15"></span>
                         <span name="name_autocheck" class="autocheck"></span>
                         <div name="name_error" class="clear error"
                              id="phone_error"><?php echo form_error('phone'); ?></div>
@@ -206,7 +209,7 @@
                                 <span class="oneTwo"><input name="email" id="email" _autocheck="true"
                                                             type="email"
                                                             value="<?php echo set_value('email') ?>"
-                                                            class="check_email" required></span>
+                                                            class="check_email"></span>
                         <span name="name_autocheck" class="autocheck" id="mail_autocheck"></span>
                         <div name="name_error" class="clear error"
                              id="email_error"><?php echo form_error('email'); ?></div>
@@ -218,8 +221,7 @@
                     <label class="formLeft" for="param_site_title">Địa chỉ:</label>
                     <div class="formRight">
                             <span class="oneTwo"><textarea name="address" id="address" _autocheck="true" rows="4"
-                                                           cols=""
-                                                           required><?php echo set_value('address') ?> </textarea></span>
+                                                           cols=""><?php echo set_value('address') ?> </textarea></span>
                         <span name="address_autocheck" class="autocheck"></span>
                         <div name="address_error" id="address_error" class="clear error"></div>
                     </div>
@@ -243,18 +245,23 @@
                     <label class="formLeft">Hình ảnh:<span class="req"></span></label>
                     <div class="formRight">
                         <div class="left"><input id="image" name="image" type="file"
-                                                 value="<?php //echo set_value('avatar') ?>"></div>
-                        <div name="image_error" class="clear error"><?php //echo form_error('avatar'); ?></div>
+                                                 value="<?php echo set_value('avatar') ?>"></div>
+                        <div name="image_error" class="clear error"><?php echo form_error('avatar'); ?></div>
                     </div>
                     <div class="clear"></div>
                 </div>
                 <!-- gioi tinh -->
                 <div class="formRow">
-                    <label class="formLeft" for="gender">Giới tính:</label>
+                    <label class="formLeft" for="param_name">Giới tính:</label>
                     <div class="formRight">
-                        <label class="radio-inline"><input type="radio" name="gender" value="0" checked>
-                            Nam</label>
-                        <label class="radio-inline"><input type="radio" name="gender" value="1"> Nữ</label>
+                                <span class="one-two"><input name="gender" id="param_name" _autocheck="true"
+                                                             type="radio" value="0" checked>
+                                </span><label>Nam</label>
+                        <span class="one-two"><input name="gender" id="param_name" _autocheck="true"
+                                                     type="radio" value="1">
+                                </span><label>Nữ</label>
+                        <span name="name_autocheck" class="autocheck"></span>
+                        <div name="name_error" class="clear error"><?php echo form_error('gender'); ?></div>
                     </div>
                     <div class="clear"></div>
                 </div>
@@ -267,89 +274,6 @@
             </fieldset>
         </form>
     </div>
+
 </div>
-<script>
-    $(document).ready(function () {
-//        $("#datepicker").datepicker({
-////            showOtherMonths: true,
-////            selectOtherMonths: true
-//        });
 
-//        $('#form-employ').bootstrapValidator({
-//            // To use feedback icons, ensure that you use Bootstrap v3.1.0 or later
-//            feedbackIcons: {
-//                valid: 'glyphicon glyphicon-ok',
-//                invalid: 'glyphicon glyphicon-remove',
-//                validating: 'glyphicon glyphicon-refresh'
-//            },
-//            fields: {
-//                fname: {
-//                    message: 'Họ không được để trống',
-//                    validators: {
-//                        notEmpty: {
-//                            message: 'The username is required and cannot be empty'
-//                        },
-//                        stringLength: {
-//                            min: 2,
-//                            max: 15,
-//                            message: 'The username must be more than 2 and less than 15 characters long'
-//                        },
-////                        regexp: {
-////                            regexp: /^[a-zA-Z0-9]+$/,
-////                            message: 'The username can only consist of alphabetical and number'
-////                        },
-//                        different: {
-//                            field: 'password',
-//                            message: 'The username and password cannot be the same as each other'
-//                        }
-//                    }
-//                },
-//                email: {
-//                    validators: {
-//                        notEmpty: {
-//                            message: 'The email address is required and cannot be empty'
-//                        },
-//                        emailAddress: {
-//                            message: 'The email address is not a valid'
-//                        }
-//                    }
-//                },
-//                password: {
-//                    validators: {
-//                        notEmpty: {
-//                            message: 'The password is required and cannot be empty'
-//                        },
-//                        different: {
-//                            field: 'username',
-//                            message: 'The password cannot be the same as username'
-//                        },
-//                        stringLength: {
-//                            min: 8,
-//                            message: 'The password must have at least 8 characters'
-//                        }
-//                    }
-//                },
-//                birthday: {
-//                    validators: {
-//                        notEmpty: {
-//                            message: 'The date of birth is required'
-//                        },
-//                        date: {
-//                            // format: 'DD/MM/YYYY',
-//                            message: 'The date of birth is not valid'
-//                        }
-//                    }
-//                },
-//                gender: {
-//                    validators: {
-//                        notEmpty: {
-//                            message: 'The gender is required'
-//                        }
-//                    }
-//                }
-//            }
-//        });
-    });
-
-
-</script>

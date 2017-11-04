@@ -1,171 +1,192 @@
 <?php
 
-
-Class Import extends MY_Controller
+class Import extends MY_Controller
 {
-    protected $tb = 'nha_cungcap';
-    protected $tb1 = 'phieunhap';
-
     public function __construct()
     {
         parent::__construct();
-        $this->load->model(array('import_model', 'providers_model'));
+        $this->load->model('import_model');
     }
 
-    /*
-    * Lấy ra danh sách các phiếu nhập
-    * */
-    function index()
+    public function checkRepeat()
     {
-        $input = array();
-        $input['order'] = array('TRANGTHAI', 'DESC');
-        $select = 'MA_PHIEUNHAP,NGAYLAP_PHIEUNHAP,TONG_THANHTIEN,TIEN_TRATRUOC,NGAY_PHAITRA,HO,TEN,TEN_NHA_CUNGCAP,' . $this->tb . '.MA_NHA_CUNGCAP,' . $this->tb1 . '.TRANGTHAI,' . $this->tb1 . '.MA_NHANVIEN';
-        $order = 'MA_PHIEUNHAP';
-        $list = $this->import_model->getListThreeJoin('nhanvien', 'MA_NHANVIEN', 'nha_cungcap', 'MA_NHA_CUNGCAP', '', $select, $order);
-//        if ($this->input->post()) {
-//            $providers = $this->input->post('providers', true);
-//            $cost = $this->input->post('cost', true);
-//            $promissDate = $this->input->post('promissDate', true);
-//            $employeCode = $this->input->post('employeCode', true);
-//            $dt = array(
-//                'MA_NHA_CUNGCAP' => $providers,
-//                'MA_NHANVIEN' => $employeCode,
-//                'TIEN_TRATRUOC' => $cost,
-//                'NGAY_PHAITRA' => $promissDate
-//            );
-//
-//
-//        }
+        if (isset($_POST["providersId"]) && !empty($_POST["providersId"])) {
+            $providersId = $_POST["providersId"];//kiem tra nha cung cap
+            $timeSetBill = new DateTime('now');
+            $timeSetBill = $timeSetBill->format('Y-m-d');
+            $dt = array('MA_NHA_CUNGCAP' => $providersId);
+            if ($this->import_model->check_exist_providers($dt, $timeSetBill)) {
+                echo 'Trùng ! Vui lòng chờ ngày mai...';
+            } else {
+                echo '';
+            }
+        }
+    }
 
-      //  pre($list);
+    public function index()
+    {
+        //lay noi dung cua messager
+        $this->data['message'] = $this->session->flashdata('message');
+
+        //lay tông số lượng tất cả các sản phẩm
+        $total_rows = $this->import_model->get_total();
+        $this->data['total_rows'] = $total_rows;
+
+        //thuc hien load phan trang
+        $this->load->library('pagination');
+        $config = array();
+        $config['total_rows'] = $total_rows;;//tong tat ca cac sản phẩm trên webiste
+        $config['base_url'] = admin_url('import/index');//link hien thi ra danh sach san pham
+        $config['per_page'] = 5;//hien thi so luong san pham tren 1 trang
+        $config['uri_segment'] = 4;//hien thi so trang
+        $config['next_link'] = "Trang kế tiếp";
+        $config['prev_link'] = "Trang trước";
+
+        //khoi tao phan trang
+        $this->pagination->initialize($config);
+
+
+        //thuc hien kiem tra no da lap chi tiet chua neu chua moi dc phep sua va xoa
+        //lay danh sach trong chi tiet phieu nhap kiem tra xem no da lap chi tiet phieu nhap hay
+        $this->load->model('importDetail_model');
+        $this->data['importDe'] = $this->importDetail_model->getList();
+        $dt = $this->import_model->getListJoin('chitiet_nhap','MA_PHIEUNHAP');
+      //  $dt = $this->importDetail_model->getListJoinLRB($table1,$condition,'left');
+     //   pre($dt);
+//        pre($this->data['importDe']);
+
+        //lay danh sach  phieu nhap
+        $list = $this->import_model->getListThreeJoin('nhanvien', 'MA_NHANVIEN', 'nha_cungcap', 'MA_NHA_CUNGCAP');
         $this->data['list'] = $list;
-        $this->data['temp'] = 'admin/import/index';
+
+         // pre($list);
+        $this->data['temp'] = 'admin/import/index';//khung tieu de cua admin duoc giu lai
         $this->load->view('admin/main', $this->data);
     }
 
-    /*
-     * Thêm mới nhà cung câp
-     *
-     * */
-    function add()
+    public function add()
     {
-        /*load ra form validate dữ liệu */
-        $input = array();
+
         $this->load->library('form_validation');
         $this->load->helper('form');
-
-        /*kiểm tra data khi post len*/
+        //thuc hien submit
         if ($this->input->post()) {
-            $providers = $this->input->post('providers', true);
-            $cost = $this->input->post('cost', true);
-            $promissDate = $this->input->post('promissDate', true);
-            $employeCode = $this->input->post('employeCode', true);
-            $dt = array(
-                'MA_NHA_CUNGCAP' => $providers,
-                'MA_NHANVIEN' => $employeCode,
-                'TIEN_TRATRUOC' => $cost,
-                'NGAY_PHAITRA' =>  date('Y-m-d', strtotime($promissDate))
+            //thuc hien insert
+            $employeeId = $this->input->post('employeeId');
+            $providerId = $this->input->post('nameProviders');
+            $data = array(
+                'MA_NHANVIEN' => $employeeId,
+                'MA_NHA_CUNGCAP' => $providerId
             );
-            /*kiểm tra thương hiệu này đã tồn tại hay chưa*/
-
-            if ($this->import_model->add($dt)) {
-                //tao noi dung thong bao
-                $this->session->set_flashdata('message', 'Thêm thành công!');
-                redirect(admin_url('import'));
+            if ($this->import_model->add($data)) {
+                $this->session->set_flashdata('message', 'Lập phiếu nhập thành công!');
             } else {
-                $this->session->set_flashdata('message', 'Thêm thất bại');
+                $this->session->set_flashdata('message', 'Lập phiếu nhập thất bại');
             }
-
+            redirect(admin_url('import'));
         }
-        $input['where'] = array('TRANGTHAI !=' =>0);
-        $this->data['providers'] = $this->providers_model->getList($input);
-       // pre($this->data['providers']);
+
+
+        /*thuc hien load nhan vien đang đăng nhâp vào
+        chỉ có nhân viên mới được phếp nhập
+        */
+        // $this->data['employee'] = $this->import_model->getList();
+        /*thuc hien load nha cung cap con hoat dong TT =1*/
+        $this->load->model('providers_model');
+        $input['where'] = array('TRANGTHAI' => '1');//hoat dong
+        $list = $this->providers_model->getList($input);//danh sach nha cung cap con hoat dong
+
+//        pre($list);
+        /*thuc hien load thong tin san pham dua vao loai ma nha cung cap co*/
+
+        /**/
+        $this->data['list'] = $list;
         $this->data['temp'] = 'admin/import/add';
         $this->load->view('admin/main', $this->data);
     }
-    /*
-    *Cập nhật nhà cung câp
-    *
-    * */
-    function edit()
+
+    public function edit()
     {
-        /*load ra form validate dữ liệu */
+
         $this->load->library('form_validation');
         $this->load->helper('form');
-        /*Lấy thông tin theo id*/
-        $this->id = $this->uri->segment('4');
-        $this->id = intval($this->id);
-        $where = array('MA_PHIEUNHAP' => $this->id);
 
-        $info = $this->import_model->get_info_rule($where);
-        if (!$info){
-            $this->session->set_flashdata('message', 'Không tìm thấy này!');
+        $id = $this->uri->rsegment(3);
+        $id = intval($id);
+
+        //lấy thong tin của quản trị viên
+        $input = array('MA_PHIEUNHAP' => $id);
+        $info = $this->import_model->get_info_rule($input);
+
+        if (!$info) {
+            $this->session->set_flashdata('message', 'Không tồn tại phiếu nhập này!');
             redirect(admin_url('import'));
         }
-        $this->data['info'] = $info;
-        /*kiểm tra data khi post len*/
-        if ($this->input->post()) {
-            $providers = $this->input->post('providers', true);
-            $cost = $this->input->post('cost', true);
-            $promissDate = $this->input->post('promissDate', true);
-            $employeCode = $this->input->post('employeCode', true);
-            $dt = array(
-                'MA_NHA_CUNGCAP' => $providers,
-                'MA_NHANVIEN' => $employeCode,
-                'TIEN_TRATRUOC' => $cost,
-                'NGAY_PHAITRA' =>  date('Y-m-d', strtotime($promissDate))
-            );
-            /*kiểm tra thương hiệu này đã tồn tại hay chưa*/
+        //thuc hien kiem tra ma phieu nhap da nhap hang chua
+        //dau vao ma nhan vien,ma nha cung cap,ngay
 
-            if ($this->import_model->update_rule($where, $dt)) {
-                //tao noi dung thong bao
+
+        $this->data['import'] = $info;
+        //thuc hien submit
+        if ($this->input->post()) {
+            //thuc hien insert
+            $employeeId = $this->input->post('employeeId');
+            $providerId = $this->input->post('nameProviders');
+            $data = array(
+                'MA_NHANVIEN' => $employeeId,
+                'MA_NHA_CUNGCAP' => $providerId
+            );
+
+            if ($this->import_model->update_rule($input, $data)) {
                 $this->session->set_flashdata('message', 'Update thành công!');
-                redirect(admin_url('import'));
             } else {
                 $this->session->set_flashdata('message', 'Update thất bại');
             }
-
+            redirect(admin_url('import'));
         }
 
-        $this->data['providers'] = $this->providers_model->getList();
+
+        /*thuc hien load nhan vien đang đăng nhâp vào
+        chỉ có nhân viên mới được phếp nhập
+        */
+        // $this->data['employee'] = $this->import_model->getList();
+        /*thuc hien load nha cung cap con hoat dong TT =1*/
+        $this->load->model('providers_model');
+        $input['where'] = array('TRANGTHAI' => '1');//hoat dong
+        $list = $this->providers_model->getList($input);//danh sach nha cung cap con hoat dong
+
+//        pre($list);
+        /*thuc hien load thong tin san pham dua vao loai ma nha cung cap co*/
+
+        /**/
+        $this->data['list'] = $list;
         $this->data['temp'] = 'admin/import/edit';
         $this->load->view('admin/main', $this->data);
     }
 
-    /*
-  * Xóa phiếu nhập
-  * */
-    function delete(){
-        /*Lấy thông tin theo id*/
-        $this->id = $this->uri->segment('4');
+    public function delete()
+    {
+        $this->id = $this->uri->segment(4);
         $this->id = intval($this->id);
-        $where = array('MA_PHIEUNHAP' => $this->id);
+        $input = array('MA_PHIEUNHAP'=>$this->id);
 
-        $info = $this->import_model->get_info_rule($where);
-        if (!$info){
-            $this->session->set_flashdata('message', 'Không tìm thấy !');
+
+        //lay thong tin cua quan tri kiem tra xem co ton tai hay khong
+        $info = $this->import_model->get_info_rule($input);
+
+        if (sizeof($info) == 0) {
+            $this->session->set_flashdata('message', 'Không tồn tại phiếu nhấp này!');
             redirect(admin_url('import'));
         }
-        if ($info['TRANGTHAI'] == '1'){
-            // chưa cung cấp loại or nhập hàng
-            if($this->import_model->del_rule($where)){
-                $this->session->set_flashdata('message', 'Xóa thành công! ');
-                redirect(admin_url('import'));
-            }else{
-                $this->session->set_flashdata('message', 'Xóa thất bại! ');
-            }
-        }elseif ($info['TRANGTHAI'] == '2') {
-            /*Xóa bằng cách cập nhật lại trạng thái*/
-            $dt = array(
-                'TRANGTHAI' => 0
-            );
-            if ($this->import_model->update_rule($where, $dt)) {
-                //tao noi dung thong bao
-                $this->session->set_flashdata('message', 'Xóa thành công! ');
-                redirect(admin_url('import'));
-            } else {
-                $this->session->set_flashdata('message', 'Xóa thất bại! ');
-            }
+        //thuc hien xoa
+        if ($this->import_model->del_rule($input)) {
+            $this->session->set_flashdata('message', 'Delete success!');
+        } else {
+            $this->session->set_flashdata('message', 'Delete Fail!');
         }
+        // pre($info);
+
+            redirect(admin_url('import'));
     }
+
 }
